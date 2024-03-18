@@ -24,8 +24,14 @@ const pathname = Astro.url.pathname;
 	</head>
 	<body>
 		<main class="flex flex-col items-center w-full min-h-full flex-1">
-			<Headroom offset={0} tolerance={5} duration="350ms" client:load>
-				<Header url={pathname} client:load />
+			<Headroom
+				offset={0}
+				tolerance={5}
+				duration="350ms"
+				client:load
+				client:only="svelte"
+			>
+				<Header url={pathname} client:load client:only="svelte" />
 			</Headroom>
 			<article
 				id="content-wrapper"

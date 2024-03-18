@@ -24,7 +24,7 @@ console.log("posts fetched", posts);
       {
         posts.length
           ? posts.map((post) => (
-              <ArtList category={category} post={post}>
+              <ArtList category={category} post={post} client:only="svelte">
                 <Image
                   src={urlFor(post.mainImage).width(500).height(300).url()}
                   width="500"

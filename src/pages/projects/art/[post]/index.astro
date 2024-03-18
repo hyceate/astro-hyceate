@@ -26,5 +26,5 @@ if (post) {
 ---
 
 <Layout title={post.title} description={post.mainImage.alt}>
-  <Artpost client:load data={post} />
+  <Artpost client:load client:only="svelte" data={post} />
 </Layout>
