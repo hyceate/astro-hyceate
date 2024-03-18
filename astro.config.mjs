@@ -36,6 +36,7 @@ export default defineConfig({
     mode: "directory"
   }),
   vite: {
+    build: { assetsDir: "_astro"},
     plugins: [
       // Include filter to only check specific files for components and styles.
       vidstack({ include: /player\// }),
