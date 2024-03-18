@@ -25,7 +25,7 @@ let posts = postsFetched?.posts;
       {
         posts.length
           ? posts.map((post) => (
-              <Live2dList category={category} post={post} client:only="svelte">
+              <Live2dList category={category} post={post}>
                 <Image
                   src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
                   width="500"

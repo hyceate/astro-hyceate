@@ -8,7 +8,7 @@ import { urlFor } from "@lib/utils/image";
 const category = "art";
 let postsFetched = await fetchList(category);
 let posts = postsFetched.posts;
-console.log("posts fetched", posts);
+// console.log("posts fetched", posts);
 ---
 
 <Layout title="Hyceate's Arts Page" description="Hyceate's list of artworks."
@@ -24,7 +24,7 @@ console.log("posts fetched", posts);
       {
         posts.length
           ? posts.map((post) => (
-              <ArtList category={category} post={post} client:load>
+              <ArtList category={category} post={post}>
                 <Image
                   src={urlFor(post.mainImage).width(500).height(300).url()}
                   width="500"
