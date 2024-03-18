@@ -5,7 +5,6 @@ import Layout from "@layouts/Layout.astro";
 import { fetchList } from "@lib/stores/fetchData";
 // import { Picture } from "astro:assets";
 import { Picture } from "astro-imagetools/components";
-// import { urlFor } from "@lib/utils/image";
 import Live2dList from "@components/content/live2dPosts.svelte";
 const category = "live2d";
 let postsFetched = await fetchList(category);
@@ -27,17 +26,18 @@ let posts = postsFetched?.posts;
       {
         posts.length
           ? posts.map((post) => (
-              <Live2dList category={category} post={post} client:load>
+              <Live2dList category={category} post={post}>
                 <Picture
                   src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
                   alt={post.coverImage.alt}
-                  width="720"
-                  height="1280"
                   loading="lazy"
                   decoding="async"
-                  pictureAttributes={{
-                    class:
-                      "flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center",
+                  placeholder="dominantColor"
+                  attributes={{
+                    img: {
+                      class:
+                        "flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center",
+                    },
                   }}
                   slot="image"
                 />
