@@ -1,0 +1,28 @@
+---
+// ART [post] Page
+import Layout from "@layouts/Layout.astro";
+import Artpost from "@components/content/artpost.svelte";
+import { fetchList } from "@lib/stores/fetchData";
+
+export async function getStaticPaths() {
+  const posts = await fetchList("art");
+  const data = posts?.posts[0];
+  console.log(data);
+  const category = String(data?.category[0]?.title);
+  return [
+    {
+      params: {
+        category: category,
+        post: data?.slug,
+      },
+      props: { data },
+    },
+  ];
+}
+const { data } = Astro.props;
+console.log(data);
+---
+
+<Layout title={data.title} description={data.mainImage.alt}>
+  <Artpost {data} />
+</Layout>

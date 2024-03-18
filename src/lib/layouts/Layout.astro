@@ -1,0 +1,47 @@
+---
+import "@assets/css/app.css";
+import CommonHead from "@components/CommonHead.astro";
+import Header from "@components/header.svelte";
+import Headroom from "@components/headroom.svelte";
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/hy_roundBG.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<CommonHead title={title} description={description} />
+	</head>
+	<body>
+		<main class="flex flex-col items-center w-full mt-20 h-dvh">
+			<Headroom
+				offset={0}
+				tolerance={5}
+				duration="350ms"
+				client:only="svelte"
+				transition:name="header"
+			>
+				<Header url={pathname} client:only="svelte" />
+			</Headroom>
+			<div class="flex flex-col">
+				<article
+					id="content-wrapper"
+					class="flex flex-col w-dvw items-center px-5 pt-5 mb-5 max-w-[81rem]"
+				>
+					<slot />
+				</article>
+			</div>
+		</main>
+		<style is:global></style>
+	</body>
+</html>

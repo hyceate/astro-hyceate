@@ -1,0 +1,12 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Projects from "@components/content/projects.svelte";
+---
+
+<!-- Projects Page -->
+<Layout
+  title="Hyceate's Project Page"
+  description="The page for a list of all project categories."
+>
+  <Projects client:only="svelte" />
+</Layout>
