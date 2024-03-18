@@ -31,13 +31,13 @@ let posts = postsFetched.posts;
                 <Picture
                   src={urlFor(post.mainImage).width(1280).height(720).url()}
                   alt={post.mainImage.alt}
+                  width={1280}
                   loading="lazy"
-                  decoding="async"
                   placeholder="dominantColor"
                   attributes={{
                     img: {
                       class:
-                        "h-full w-full min-h-[10rem] min-w-[15rem] rounded-lg object-cover object-center",
+                        "h-full w-full rounded-lg object-cover object-center",
                     },
                   }}
                   slot="image"
