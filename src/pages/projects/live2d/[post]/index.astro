@@ -27,5 +27,5 @@ const { post } = Astro.props;
 ---
 
 <Layout title={post.title} description={post.description}>
-  <Live2DPost client:load client:only="svelte" data={post} />
+  <Live2DPost client:load data={post} />
 </Layout>
