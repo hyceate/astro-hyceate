@@ -1,8 +1,10 @@
 ---
 // Art Page
+// @ts-nocheck
 import Layout from "@layouts/Layout.astro";
 import ArtList from "@components/content/artPosts.svelte";
 import { fetchList } from "@lib/stores/fetchData";
+// import { Picture } from "astro:assets";
 import { Picture } from "astro-imagetools/components";
 import { urlFor } from "@lib/utils/image";
 
@@ -25,7 +27,7 @@ let posts = postsFetched.posts;
       {
         posts.length
           ? posts.map((post) => (
-              <ArtList category={category} post={post}>
+              <ArtList category={category} post={post} client:load>
                 <Picture
                   src={urlFor(post.mainImage).width(500).height(300).url()}
                   width="500"
@@ -33,17 +35,9 @@ let posts = postsFetched.posts;
                   alt={post.mainImage.alt}
                   loading="lazy"
                   decoding="async"
-                  placeholder="dominantColor"
-                  fadeInTransition={{
-                    delay: "0.0s",
-                    duration: "0.5s",
-                    timingFunction: "ease",
-                  }}
-                  attributes={{
-                    img: {
-                      class:
-                        "flex-1 max-w-full rounded-lg object-cover object-center",
-                    },
+                  pictureAttributes={{
+                    class:
+                      "flex-1 max-w-full rounded-lg object-cover object-center",
                   }}
                   slot="image"
                 />

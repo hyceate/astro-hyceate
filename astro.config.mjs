@@ -27,7 +27,9 @@ export default defineConfig({
   //   useCdn: true,
   //   apiVersion,
 }
-  ),astroImageTools],
+  ),
+  astroImageTools,
+],
   output: "hybrid",
   adapter: cloudflare({
     imageService: 'passthrough',
