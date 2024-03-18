@@ -2,7 +2,7 @@
 // Live2D Page
 import Layout from "@layouts/Layout.astro";
 import { fetchList } from "@lib/stores/fetchData";
-import { Image } from "astro:assets";
+import { Picture } from "astro-imagetools/components";
 // import { urlFor } from "@lib/utils/image";
 import Live2dList from "@components/content/live2dPosts.svelte";
 const category = "live2d";
@@ -26,15 +26,24 @@ let posts = postsFetched?.posts;
         posts.length
           ? posts.map((post) => (
               <Live2dList category={category} post={post}>
-                <Image
+                <Picture
                   src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
-                  width="500"
-                  height="300"
                   alt={post.coverImage.alt}
                   slot="image"
                   loading="lazy"
                   decoding="async"
-                  class="flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center"
+                  placeholder="dominantColor"
+                  fadeInTransition={{
+                    delay: "0.0s",
+                    duration: "0.5s",
+                    timingFunction: "ease",
+                  }}
+                  attributes={{
+                    img: {
+                      class:
+                        "flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center",
+                    },
+                  }}
                 />
               </Live2dList>
             ))

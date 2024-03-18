@@ -2,6 +2,7 @@
 export const categoryQuery = `*[_type == "category"]{
   _id, title, description,
   "slug":slug.current,
+  mainImage,
 }`;
 
 export const getPosts = (query:string) => {

@@ -12,12 +12,13 @@ import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
+import { astroImageTools } from "astro-imagetools";
 import { vite as vidstack } from 'vidstack/plugins';
 import sanity from "@sanity/astro";
 // https://astro.build/config
 export default defineConfig({
   integrations: [svelte(), tailwind(), mdx(), sanity({
-    projectId: 'u6uatr6p',
+  projectId: 'u6uatr6p',
   dataset: 'production',
   useCdn: true, // set to `false` to bypass the edge cache
   apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
@@ -26,7 +27,7 @@ export default defineConfig({
   //   useCdn: true,
   //   apiVersion,
 }
-  )],
+  ),astroImageTools],
   output: "hybrid",
   adapter: cloudflare({
     imageService: 'passthrough',

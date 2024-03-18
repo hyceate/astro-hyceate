@@ -39,7 +39,7 @@
 
 <header
   id="header"
-  class="flex justify-between w-full z-10 top-0 left-0 items-center px-10 lg:px-20 h-20 bg-primary rounded-lg transition-all"
+  class="flex justify-between w-full z-10 top-0 left-0 items-center px-5 lg:px-20 h-20 bg-primary rounded-lg transition-all"
 >
   <div class="flex flex-1 max-md:hidden max-lg:justify-center z-20">
     <SocialLinks />

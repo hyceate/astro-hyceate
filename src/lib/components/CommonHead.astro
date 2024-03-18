@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { AstroFont } from "astro-font";
 interface Props {
   title: string;
   description?: string;
@@ -14,5 +15,30 @@ const { title, description } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-
+<AstroFont
+  config={[
+    {
+      src: [],
+      name: "Rubik",
+      // Google Fonts URL
+      googleFontsURL:
+        "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap",
+      preload: true,
+      display: "swap",
+      selector: "body",
+      fallback: "sans-serif",
+    },
+    {
+      src: [],
+      name: "Lexend",
+      // Google Fonts URL
+      googleFontsURL:
+        "https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lexend:wght@100..900&display=swap",
+      preload: true,
+      display: "swap",
+      selector: "h1",
+      fallback: "sans-serif",
+    },
+  ]}
+/>
 <ViewTransitions />

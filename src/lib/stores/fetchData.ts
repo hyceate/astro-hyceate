@@ -2,11 +2,13 @@
 import { categoryQuery, getSinglePost } from '@lib/utils/queries';
 import { readable } from "svelte/store";
 import { sanityClient } from "sanity:client";
+import type { ImageAsset } from "sanity";
 interface NavLinks {
   _id: string;
   title: string;  
   description: string;
   slug: string;
+  mainImage: any;
 }
 
 async function getData() {

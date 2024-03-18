@@ -1,30 +1,51 @@
 <script lang="ts">
   import { categoryStore } from "@lib/stores/fetchData.ts";
+  import { urlFor } from "@lib/utils/image";
+  import type { ImageAsset } from "sanity";
   interface Category {
     _id: string;
     title: string;
     description: string;
     slug: string;
+    mainImage: any;
   }
   let categories: Category[] = [];
   $: {
     categories = $categoryStore;
+    console.log(categories);
   }
 </script>
 
-<hgroup class="flex justify-center flex-col items-center mt-10 mb-10">
-  <h1 class="text-6xl mb-3.5">Projects</h1>
-  <h2>A collection of personal and commercial works.</h2>
+<hgroup class="flex justify-center flex-col items-center mt-10 mb-20">
+  <h1 class="text-6xl mb-9 font-medium">Projects</h1>
+  <h2>Projects consist of personal and commercial purposes.</h2>
 </hgroup>
 
-<div class="flex flex-col w-full">
+<div class="flex flex-col justify-center w-full">
   {#each categories as category}
     <a
-      class="border-2 border-rose-300 rounded-lg p-5 hover:bg-rose-100 focus:bg-rose-100 active:bg-rose-200 transition-all mr-5 last:mr-0 w-full mb-5 last:mb-0"
+      class="flex mb-2 last:mb-0 min-h-[15rem] hover:text-rose-900 transition-all"
       href="/projects/{category.slug}"
     >
-      <button tabindex="-1" class="p-5 w-full m-15">
-        <h2 class="text-5xl font-medium uppercase">{category.title}</h2>
+      <button
+        tabindex="-1"
+        class="major-button w-full m-15 overflow-hidden relative transition-all"
+      >
+        <figure class="absolute left-0 -top-36 rounded-lg">
+          <img
+            class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
+            src={urlFor(category.mainImage).width(1280).height(1000).url()}
+            alt={category?.mainImage.alt}
+          />
+        </figure>
+        <div
+          class="w-full h-full absolute left-0 top-0 bg-rose-100/80 hover:bg-rose-200/80 transition-all"
+        ></div>
+        <h1
+          class="text-7xl text-center font-medium lowercase tracking-wide absolute top-[50%] -translate-x-1/2 -translate-y-1/2 left-[50%] p-[2rem]"
+        >
+          {category.title}
+        </h1>
       </button>
     </a>
   {/each}
