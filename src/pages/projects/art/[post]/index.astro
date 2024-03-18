@@ -5,24 +5,26 @@ import Artpost from "@components/content/artpost.svelte";
 import { fetchList } from "@lib/stores/fetchData";
 
 export async function getStaticPaths() {
-  const posts = await fetchList("art");
-  const data = posts?.posts[0];
-  console.log(data);
-  const category = String(data?.category[0]?.title);
-  return [
-    {
-      params: {
-        category: category,
-        post: data?.slug,
-      },
-      props: { data },
-    },
-  ];
+  const postsData = await fetchList("art");
+  if (!postsData || !postsData.posts) {
+    throw new Error("Error fetching list");
+  }
+  const { posts } = postsData;
+  const paths = posts.map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+  return paths;
 }
-const { data } = Astro.props;
-console.log(data);
+
+const { post } = Astro.props;
+
+// Log post only if it's not null
+if (post) {
+  console.log(post);
+}
 ---
 
-<Layout title={data.title} description={data.mainImage.alt}>
-  <Artpost {data} />
+<Layout title={post.title} description={post.mainImage.alt}>
+  <Artpost client:load data={post} />
 </Layout>

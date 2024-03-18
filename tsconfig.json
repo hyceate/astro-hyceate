@@ -1,6 +1,10 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "types": [
+      "svelte",
+      "vidstack/svelte"
+    ],
     "baseUrl": ".",
     "paths": {
       "@components/*": [
@@ -16,5 +20,5 @@
         "src/lib/*"
       ]
     }
-  }
+  },
 }

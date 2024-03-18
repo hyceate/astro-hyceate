@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { beforeUpdate } from "svelte";
   import { fade, fly, crossfade } from "svelte/transition";
   import { cubicOut, cubicInOut } from "svelte/easing";
   import { clickOutside } from "@lib/actions/clickOutside";
@@ -6,14 +7,22 @@
   import close from "@assets/svg/close.svg";
   import logo from "@assets/svg/hy_roundBG.svg";
   import SocialLinks from "@components/social-links.svelte";
-  import { isMenuOpen } from "@lib/stores/stores";
+  import { isMenuOpen, isLoading } from "@lib/stores/stores";
   import { onDestroy } from "svelte";
   export let url: string = "";
   const [send, receive] = crossfade({
     duration: 400,
     easing: cubicInOut,
   });
-
+  beforeUpdate(() => {
+    const htmlElement = document.documentElement;
+    const shouldHideOverflow = $isMenuOpen || $isLoading;
+    if (shouldHideOverflow) {
+      htmlElement.classList.add("overflow-hidden");
+    } else {
+      htmlElement.classList.remove("overflow-hidden");
+    }
+  });
   function openMenu() {
     $isMenuOpen = !$isMenuOpen;
     console.log("Open Menu", $isMenuOpen);

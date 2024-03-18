@@ -1,0 +1,31 @@
+---
+// Live2D [post] Page
+import Layout from "@layouts/Layout.astro";
+import Live2DPost from "@components/content/live2dpost.svelte";
+import { fetchList } from "@lib/stores/fetchData";
+interface Post {
+  title: string;
+  description: string;
+  slug: string;
+  categoryQuery: string;
+  [key: string]: any;
+}
+export async function getStaticPaths() {
+  const posts = await fetchList("live2d");
+  if (!posts || !posts.posts) {
+    throw new Error("Error fetching list");
+  }
+  const data: Post[] = posts.posts;
+  return data.map((post) => {
+    return {
+      params: { post: post.slug },
+      props: { post },
+    };
+  });
+}
+const { post } = Astro.props;
+---
+
+<Layout title={post.title} description={post.description}>
+  <Live2DPost client:load data={post} />
+</Layout>

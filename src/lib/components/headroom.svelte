@@ -52,7 +52,7 @@
 		position: fixed;
 		max-width: 81rem;
 		width: 100%;
-		top: 0;
+		top: 10;
 		transition: transform 300ms linear;
 		z-index: 1000;
 	}

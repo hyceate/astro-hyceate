@@ -1,7 +1,7 @@
 <script lang="ts">
   export let post: any;
   export let category: string;
-  console.log(`Post Data for art Cards`, post);
+  // console.log(`Post Data for art Cards`, post);
 </script>
 
 <a href="/projects/{category}/{post.slug}">

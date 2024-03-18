@@ -1,0 +1,45 @@
+---
+// Live2D Page
+import Layout from "@layouts/Layout.astro";
+import { fetchList } from "@lib/stores/fetchData";
+import { Image } from "astro:assets";
+// import { urlFor } from "@lib/utils/image";
+import Live2dList from "@components/content/live2dPosts.svelte";
+const category = "live2d";
+let postsFetched = await fetchList(category);
+let posts = postsFetched?.posts;
+---
+
+<Layout
+  title="Hyceate's Live2D Page"
+  description="Hyceate's list of Live2d showcase videos."
+  ><section class="flex flex-col justify-start items-center mt-10">
+    {
+      postsFetched?.categoryQuery && (
+        <h1 class="text-4xl uppercase mb-10 font-medium tracking-wider">
+          {postsFetched?.categoryQuery}
+        </h1>
+      )
+    }
+    <ul class="flex flex-wrap max-w-6xl justify-center md:justify-normal">
+      {
+        posts.length
+          ? posts.map((post) => (
+              <Live2dList category={category} post={post} client:only="svelte">
+                <Image
+                  src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
+                  width="500"
+                  height="300"
+                  alt={post.coverImage.alt}
+                  slot="image"
+                  loading="lazy"
+                  decoding="async"
+                  class="flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center"
+                />
+              </Live2dList>
+            ))
+          : "Data not Found"
+      }
+    </ul>
+  </section>
+</Layout>

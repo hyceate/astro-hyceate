@@ -13,23 +13,25 @@
     "@astrojs/check": "^0.5.9",
     "@astrojs/cloudflare": "^9.1.0",
     "@astrojs/mdx": "^2.2.0",
-    "@astrojs/node": "^8.2.3",
     "@astrojs/svelte": "^5.2.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@portabletext/svelte": "^2.1.6",
     "@portabletext/types": "^2.0.8",
     "@sanity/astro": "^3.0.0",
     "@sanity/client": "^6.15.4",
     "@sanity/image-url": "^1.0.2",
     "@sanity/types": "^3.34.0",
+    "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.5.3",
-    "astro-imagetools": "^0.9.0",
     "nanostores": "^0.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanity": "^3.34.0",
     "svelte": "^4.2.12",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.2"
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.4.2",
+    "vidstack": "^1.10.9"
   },
   "devDependencies": {
     "vite": "^5.1.6"

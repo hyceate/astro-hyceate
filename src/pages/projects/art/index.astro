@@ -1,16 +1,16 @@
 ---
+// Art Page
 import Layout from "@layouts/Layout.astro";
 import ArtList from "@components/content/artPosts.svelte";
 import { fetchList } from "@lib/stores/fetchData";
-import { Img } from "astro-imagetools/components";
+import { Image } from "astro:assets";
 import { urlFor } from "@lib/utils/image";
 const category = "art";
 let postsFetched = await fetchList(category);
-let posts = postsFetched?.posts;
-console.log(posts);
+let posts = postsFetched.posts;
+console.log("posts fetched", posts);
 ---
 
-<!-- Art Page -->
 <Layout title="Hyceate's Arts Page" description="Hyceate's list of artworks."
   ><section class="flex flex-col justify-start items-center mt-10">
     {
@@ -25,16 +25,15 @@ console.log(posts);
         posts.length
           ? posts.map((post) => (
               <ArtList category={category} post={post}>
-                <Img
+                <Image
                   src={urlFor(post.mainImage).width(500).height(300).url()}
                   width="500"
                   height="300"
-                  preload="webp"
                   alt={post.mainImage.alt}
                   slot="image"
                   loading="lazy"
                   decoding="async"
-                  placeholder="blurred"
+                  class="flex-1 max-w-full rounded-md object-cover object-center"
                 />
               </ArtList>
             ))
