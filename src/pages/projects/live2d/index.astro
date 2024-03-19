@@ -34,6 +34,11 @@ let posts = postsFetched?.posts;
                     width={1280}
                     loading="lazy"
                     placeholder="dominantColor"
+                    fadeInTransition={{
+                      delay: ".3s",
+                      duration: ".4s",
+                      timingFunction: "ease-in",
+                    }}
                     attributes={{
                       img: {
                         class:

@@ -33,7 +33,7 @@
         <figure class="absolute left-0 -top-36 rounded-lg">
           <img
             class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
-            src={urlFor(category.mainImage).width(1280).height(1000).url()}
+            src={urlFor(category.mainImage).width(1280).height(720).url()}
             alt={category?.mainImage.alt}
           />
         </figure>
