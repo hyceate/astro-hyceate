@@ -6,6 +6,12 @@ const swup = new Swup({
   linkToSelf: 'navigate',
   plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), 
   ],
+  resolveUrl: (url) => {
+    if (url.startsWith('/projects/')) {
+      return '/projects/';
+    }
+    return url;
+  },
 });
 swup.hooks.on('animation:out:start', (visit) => {
   isMenuOpen.set(false);

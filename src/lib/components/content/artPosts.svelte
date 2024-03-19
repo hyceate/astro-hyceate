@@ -5,7 +5,7 @@
 </script>
 
 <li>
-  <a href="/projects/{category}/{post.slug}">
+  <a href="{category}/{post.slug}">
     <section
       id="art-card"
       class="flex flex-[1_1_0%] w-full justify-center items-center border-2 border-rose-200 rounded-lg shadow-[2px_2px_6px_#e0dad2,-2px_-4px_9px_#fffffe] transition-all"
