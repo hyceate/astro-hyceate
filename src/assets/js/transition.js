@@ -1,7 +1,6 @@
-import Swup from "swup";
+import Swup from "@swup/astro";
 import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
-import SwupMorphPlugin from 'swup-morph-plugin';
 import { isMenuOpen } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',

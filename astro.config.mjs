@@ -12,6 +12,7 @@ import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
+import swup from '@swup/astro';
 import { astroImageTools } from "astro-imagetools";
 import { vite as vidstack } from 'vidstack/plugins';
 import sanity from "@sanity/astro";
@@ -29,11 +30,12 @@ export default defineConfig({
 }
   ),
   astroImageTools,
+  swup({ globalInstance: true })
 ],
   output: "hybrid",
   adapter: cloudflare({
     imageService: 'passthrough',
-    mode: "directory"
+    mode: "advanced"
   }),
   vite: {
     plugins: [
