@@ -57,14 +57,12 @@ export const fetchList = async (params: string): Promise<PostsData> => {
     throw new Error(`Error fetching list: ${error.message}`);
   }
 };
-export const fetchSingle = (async ( category:string, slug:string ) => {
+export const fetchSingle = (async ( category:string, slug:string ): Promise<{ data: Posts[] } | string> => {
   const formattedCategory = category ? category.toLowerCase() : '';
-	const data = (await sanityClient.fetch(getSinglePost(formattedCategory, slug))) as Posts[];
-	if (data){
-		return {
-			data,
-		} 
-	}
-  else
-  return ('Error fetching');
+  try {
+    const data = await sanityClient.fetch(getSinglePost(formattedCategory, slug)) as Posts[];
+    return { data };
+  } catch (error) {
+    return 'Error fetching';
+  }
 });

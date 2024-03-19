@@ -1,7 +1,6 @@
 <script lang="ts">
   import { categoryStore } from "@lib/stores/fetchData.ts";
   import { urlFor } from "@lib/utils/image";
-  import type { ImageAsset } from "sanity";
   interface Category {
     _id: string;
     title: string;
@@ -12,7 +11,7 @@
   let categories: Category[] = [];
   $: {
     categories = $categoryStore;
-    console.log(categories);
+    // console.log(categories);
   }
 </script>
 

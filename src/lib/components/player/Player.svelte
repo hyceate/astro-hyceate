@@ -2,7 +2,7 @@
 	import "vidstack/bundle";
 	export let data: any;
 	let video = data.youtubeEmbed;
-	// console.log('Video data: ', video);
+	// console.log("Video data: ", video);
 </script>
 
 <media-player

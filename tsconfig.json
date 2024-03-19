@@ -20,6 +20,12 @@
       "@lib/*": [
         "src/lib/*"
       ]
-    }
+    },
   },
+  "exclude": [
+    "dist",
+    "functions",
+    "node_modules",
+    ".vscode"
+  ]
 }

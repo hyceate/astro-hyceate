@@ -2,7 +2,7 @@
 // Live2D [post] Page
 import Layout from "@layouts/Layout.astro";
 import Live2DPost from "@components/content/live2dpost.svelte";
-import { fetchList } from "@lib/stores/fetchData";
+import { fetchList, fetchSingle } from "@lib/stores/fetchData";
 interface Post {
   title: string;
   description: string;
@@ -19,13 +19,25 @@ export async function getStaticPaths() {
   return data.map((post) => {
     return {
       params: { post: post.slug },
-      props: { post },
     };
   });
 }
-const { post } = Astro.props;
+const { post } = Astro.params;
+const postData = await fetchSingle("live2d", post);
+
+let posts: Post | undefined;
+if (typeof postData === "string") {
+  // Handle error condition
+  console.error("Error fetching data:", postData);
+} else if (postData && postData.data && postData.data.length > 0) {
+  // Ensure postData is not null or undefined and contains data
+  posts = postData.data[0];
+} else {
+  // Handle case when postData is empty or does not contain data
+  console.error("No data found in postData:", postData);
+}
 ---
 
-<Layout title={post.title} description={post.description}>
-  <Live2DPost client:load data={post} />
+<Layout title={posts.title} description={posts.description}>
+  <Live2DPost client:load data={postData} />
 </Layout>

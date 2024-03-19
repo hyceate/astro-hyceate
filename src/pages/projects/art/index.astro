@@ -28,20 +28,21 @@ let posts = postsFetched.posts;
         posts.length
           ? posts.map((post) => (
               <ArtList category={category} post={post}>
-                <Picture
-                  src={urlFor(post.mainImage).width(1280).height(720).url()}
-                  alt={post.mainImage.alt}
-                  width={1280}
-                  loading="lazy"
-                  placeholder="dominantColor"
-                  attributes={{
-                    img: {
-                      class:
-                        "h-full w-full rounded-lg object-cover object-center",
-                    },
-                  }}
-                  slot="image"
-                />
+                <div class="contents" slot="image">
+                  <Picture
+                    src={urlFor(post.mainImage).width(1280).height(720).url()}
+                    alt={post.mainImage.alt}
+                    width={1280}
+                    loading="lazy"
+                    placeholder="dominantColor"
+                    attributes={{
+                      img: {
+                        class:
+                          "h-full w-full rounded-lg object-cover object-center",
+                      },
+                    }}
+                  />
+                </div>
               </ArtList>
             ))
           : "Data not Found"

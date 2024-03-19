@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const pathname = Astro.url.pathname;
+let pathname = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -25,16 +25,24 @@ const pathname = Astro.url.pathname;
 	<body>
 		<main class="flex flex-col items-center w-full min-h-full flex-1">
 			<Headroom offset={0} tolerance={5} duration="350ms" client:load>
-				<Header url={pathname} client:load />
+				<Header url={pathname} />
 			</Headroom>
 			<article
-				id="content-wrapper"
-				class="flex flex-col w-dvw items-center px-5 lg:px-20 pt-5 mb-5 max-w-[81rem] mt-20"
+				id="swup"
+				class="transition-fade flex flex-col w-dvw items-center px-5 lg:px-20 pt-5 mb-5 max-w-[81rem] mt-20"
 			>
 				<slot />
 			</article>
 		</main>
-
-		<style is:global></style>
+		<style is:global>
+			html.is-changing .transition-fade {
+				transition: opacity 0.25s;
+				opacity: 1;
+			}
+			html.is-animating .transition-fade {
+				opacity: 0;
+			}
+		</style>
+		<script type="module" src="/src/assets/js/transition.js"></script>
 	</body>
 </html>

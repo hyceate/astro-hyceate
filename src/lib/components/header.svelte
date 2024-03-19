@@ -8,12 +8,14 @@
   import logo from "@assets/svg/hy_roundBG.svg";
   import SocialLinks from "@components/social-links.svelte";
   import { isMenuOpen, isLoading } from "@lib/stores/stores";
+
   import { onDestroy } from "svelte";
   export let url: string = "";
   const [send, receive] = crossfade({
     duration: 400,
     easing: cubicInOut,
   });
+
   beforeUpdate(() => {
     const htmlElement = document.documentElement;
     const shouldHideOverflow = $isMenuOpen || $isLoading;
@@ -34,11 +36,11 @@
   onDestroy(() => {
     $isMenuOpen = false;
   });
+
   $: url && isMenuOpen.set(false);
 </script>
 
 <header
-  transition:persist
   id="header"
   class="flex justify-between w-full z-10 top-0 left-0 items-center px-5 lg:px-20 h-20 bg-primary rounded-lg transition-all"
 >
@@ -97,7 +99,7 @@
         on:click_outside={handleClickOutside}
       >
         <ul
-          class="navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 z-[21] max-lg:w-52"
+          class="navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 z-[21] max-lg:w-52 text-7xl"
           in:fly={{ y: -10, delay: 200, duration: 550, easing: cubicInOut }}
           out:fade={{
             delay: 0,
@@ -108,6 +110,8 @@
           <li><a href="/" aria-label="home">Home</a></li>
           <!-- dropdown -->
           <li><a href="/projects" aria-label="projects">Projects</a></li>
+          <li><a href="/projects/art" aria-label="art">art</a></li>
+          <li><a href="/projects/live2d" aria-label="live2d">live2d</a></li>
           <!-- end dropdown -->
         </ul>
         <aside
@@ -138,7 +142,7 @@
     class="flex flex-1 justify-end items-center lowercase font-medium max-lg:hidden"
   >
     <ul
-      class="navbar flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52"
+      class="navbar flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52 text-2xl"
     >
       <li><a href="/" aria-label="home">Home</a></li>
       <!-- dropdown -->
@@ -153,7 +157,6 @@
     display: inline-flex;
     align-items: center;
     padding: 5px;
-    font-size: 1.5rem;
     text-transform: lowercase;
     font-weight: 500;
     align-items: center;

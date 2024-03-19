@@ -6,19 +6,12 @@
   import link from "@assets/svg/link.svg";
   import video from "@assets/svg/video.svg";
   import { onMount } from "svelte";
-  import { fetchSingle } from "@lib/stores/fetchData";
   export let data: any;
-  let post: any = data;
-  let postData: any = [];
-  const fetchPostData = async () => {
-    return await fetchSingle(post.category[0].title, post.slug);
-  };
+  let post: any = data.data[0];
+  // console.log("Single live2d: ", post);
   let isMounted = false;
   onMount(async () => {
     isMounted = true;
-    postData = await fetchPostData();
-    post = postData.data[0];
-    console.log("Single live2d: ", post);
   });
 </script>
 
@@ -47,7 +40,7 @@
           'max-lg:basis-full lg:max-w-[61%] xl:max-w-[90rem]'}"
   >
     {#if isMounted}
-      <Player {data} />
+      <Player data={post} />
     {/if}
   </section>
   <section

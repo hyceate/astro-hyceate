@@ -27,20 +27,21 @@ let posts = postsFetched?.posts;
         posts.length
           ? posts.map((post) => (
               <Live2dList category={category} post={post}>
-                <Picture
-                  src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
-                  alt={post.coverImage.alt}
-                  width={1280}
-                  loading="lazy"
-                  placeholder="dominantColor"
-                  attributes={{
-                    img: {
-                      class:
-                        "flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center",
-                    },
-                  }}
-                  slot="image"
-                />
+                <div class="contents" slot="image">
+                  <Picture
+                    src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
+                    alt={post.coverImage.alt}
+                    width={1280}
+                    loading="lazy"
+                    placeholder="dominantColor"
+                    attributes={{
+                      img: {
+                        class:
+                          "flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center",
+                      },
+                    }}
+                  />
+                </div>
               </Live2dList>
             ))
           : "Data not Found"
