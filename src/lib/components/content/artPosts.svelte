@@ -8,10 +8,10 @@
   <a href="/projects/{category}/{post.slug}">
     <section
       id="art-card"
-      class="flex flex-[1_1_0%] w-full justify-center items-center border-2 border-rose-200 rounded-lg shadow-[2px_2px_6px_#e0dad2,-2px_-4px_9px_#fffffe] transition-all"
+      class="flex flex-[1_1_0%] w-full justify-center items-center border-2 border-darkBorder rounded-lg transition-all hover:scale-105 transition-transform ease-in-out motion-reduce:transition-none motion-reduce:hover:transform-none"
     >
       {#if post.mainImage}
-        <figure class="max-w-[40rem]">
+        <figure class="max-w-[40rem] rounded-lg">
           <slot name="image" />
         </figure>
         <!-- <img

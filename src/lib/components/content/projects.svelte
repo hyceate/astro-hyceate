@@ -28,11 +28,12 @@
     >
       <button
         tabindex="-1"
-        class="major-button w-full m-15 overflow-hidden relative transition-all"
+        class="border-2 border-darkBorder rounded-lg w-full m-15 overflow-hidden relative transition-all"
       >
         <figure class="absolute left-0 -top-36 rounded-lg">
           <img
             class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
+            loading="lazy"
             src={urlFor(category.mainImage).width(1280).height(720).url()}
             alt={category?.mainImage.alt}
           />

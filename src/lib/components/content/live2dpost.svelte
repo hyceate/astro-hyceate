@@ -16,9 +16,11 @@
 </script>
 
 <div id="back-button" class="justify-start self-start min-w-full mb-10">
-  <a href="/projects/live2d" class="hover:text-rose-900 transition-all"
+  <a
+    href="/projects/live2d"
+    class="text-rose-900 hover:text-rose-500 transition-all"
     ><button
-      class="inline-flex border-2 border-rose-200 p-2 rounded-lg bg-primary hover:bg-rose-100 focus:bg-rose-200 active:bg-rose-300 shadow-[2px_2px_11px_#e0dad8,-2px_-4px_9px_#fffffe] hover:shadow-[2px_2px_2px_#e0dad8,-2px_-2px_2px_#fffffe] transitions-all"
+      class="major-button inline-flex border-2 border-[#886a6a] p-2 rounded-lg bg-primary hover:bg-rose-100 focus:bg-rose-200 active:bg-rose-300 transitions-all"
     >
       <img src={returnButton.src} class="h-5 w-5" alt="return icon" />
       <span class="ml-3 text-md font-medium lowercase">Live2d Projects</span
@@ -31,7 +33,7 @@
 >
   <section
     id="side"
-    class="inline-flex flex-auto mb-5 static lg:sticky top-10 p-1 rounded-lg overflow-hidden bg-primary border-2 border-rose-200 rounded-lg shadow-[5px_5px_10px_#ddd1ce,-5px_-5px_10px_#fffffe] transition-all
+    class="inline-flex flex-auto mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
 		{post.youtubeEmbed.aspectRatio == '9/16'
       ? 'max-lg:max-w-[25rem] lg:max-w-[23rem] xl:w-[90rem]'
       : post.youtubeEmbed.aspectRatio == '1/1'

@@ -21,8 +21,8 @@ export default defineConfig({
   integrations: [svelte(), tailwind(), mdx(), sanity({
   projectId: 'u6uatr6p',
   dataset: 'production',
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
+  useCdn: true,
+  apiVersion: '2023-05-03',
   // projectId,
   //   dataset,
   //   useCdn: true,
@@ -42,5 +42,6 @@ export default defineConfig({
       // Include filter to only check specific files for components and styles.
       vidstack({ include: /player\// }),
     ],
+    minify: 'esbuild',
   },
 });

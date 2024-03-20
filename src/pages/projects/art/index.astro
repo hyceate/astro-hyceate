@@ -1,6 +1,5 @@
 ---
 // Art Page
-// @ts-nocheck
 import Layout from "@layouts/Layout.astro";
 import ArtList from "@components/content/artPosts.svelte";
 import { fetchList } from "@lib/stores/fetchData";
@@ -43,7 +42,7 @@ let posts = postsFetched.posts;
                     attributes={{
                       img: {
                         class:
-                          "h-full w-full rounded-lg object-cover object-center",
+                          "flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center",
                       },
                     }}
                   />

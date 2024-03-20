@@ -52,7 +52,7 @@
     <a href="/"
       ><img
         src={logo.src}
-        class="rounded-full w-[50px] h-[50px] hover:shadow-[2px_2px_2px_#e0dad8,-2px_-2px_2px_#fffffe] hover:scale-110 transition-all"
+        class="rounded-full border-2 border-darkBorder w-[50px] h-[50px] hover:scale-110 transition-all"
         alt="a round submark of Hy in lowercase from Hyceate"
       />
     </a>
@@ -94,7 +94,7 @@
         id="menu-content"
         in:fly|global={{ y: -500, duration: 400 }}
         out:fly|global={{ duration: 200 }}
-        class="flex flex-col items-center px-10 lg:hidden fixed h-dvh max-h-[80vh]"
+        class="flex flex-col items-center px-10 lg:hidden fixed h-dvh py-10 overflow-y-scroll"
         use:clickOutside
         on:click_outside={handleClickOutside}
       >
