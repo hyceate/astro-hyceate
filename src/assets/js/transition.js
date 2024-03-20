@@ -6,14 +6,12 @@ const swup = new Swup({
   linkToSelf: 'navigate',
   plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), 
   ],
-  resolveUrl: (url) => {
-    if (url.startsWith('/projects/')) {
-      return '/projects/';
-    }
-    return url;
-  },
 });
-swup.hooks.on('animation:out:start', (visit) => {
+// swup.hooks.on('animation:out:start', (visit) => {
+//   isMenuOpen.set(false);
+//   console.log('animation:out:start: ', visit.to.url);
+// });
+swup.hooks.on('visit:start', (visit) => {
   isMenuOpen.set(false);
-  console.log('New page: ', visit.to.url);
+  console.log('visit:start: ', visit.to.url);
 });
