@@ -15,17 +15,17 @@ const swup = new Swup({
 });
 swup.hooks.on('link:click', (visit) => {
   isMenuOpen.set(false);
-  isLoading.set(false);
-});
-swup.hooks.on('animation:out:start', () => {
-  document.querySelector('#loader').hidden = false;
-  document.querySelector('#loader-bg').hidden = false;
-  document.querySelector('#loader-svg').hidden = false;
   isLoading.set(true);
 });
+swup.hooks.on('animation:out:start', () => {
+  document.querySelector('#loader').classList.remove('hidden');
+  document.querySelector('#loader-bg').classList.remove('hidden');
+  isLoading.set(true);
+});
+
 swup.hooks.on('animation:in:end', () => {
-  document.querySelector('#loader').hidden = true;
-  document.querySelector('#loader-bg').hidden = true;
-  document.querySelector('#loader-svg').hidden = true;
+  document.querySelector('#loader').classList.add('hidden');
+  document.querySelector('#loader-bg').classList.add('hidden');
   isLoading.set(false);
+  console.log(isLoading);
 });
