@@ -2,6 +2,7 @@
 import "@assets/css/app.css";
 import CommonHead from "@components/CommonHead.astro";
 import Header from "@components/header.svelte";
+import Loader from "@components/loader.svelte";
 import Headroom from "@components/headroom.svelte";
 interface Props {
 	title: string;
@@ -23,6 +24,19 @@ let pathname = Astro.url.pathname;
 		<CommonHead title={title} description={description} />
 	</head>
 	<body class="flex flex-col items-center">
+		<aside
+			id="loader"
+			hidden
+			class="fixed z-[999] flex justify-center items-center w-full h-dvh"
+		>
+			<div id="loader-svg" hidden><Loader /></div>
+		</aside>
+		<div
+			id="loader-bg"
+			hidden
+			class="fixed overflow-hidden w-full h-dvh left-0 -top-0 bg-primary/80 backdrop-blur-sm z-[99]"
+		>
+		</div>
 		<Headroom offset={0} tolerance={5} duration="350ms" client:load>
 			<Header url={pathname} client:load />
 		</Headroom>
@@ -36,7 +50,7 @@ let pathname = Astro.url.pathname;
 		</main>
 		<style is:global>
 			html.is-changing .transition-fade {
-				transition: opacity 0.25s;
+				transition: opacity 1s;
 				opacity: 1;
 			}
 			html.is-animating .transition-fade {
