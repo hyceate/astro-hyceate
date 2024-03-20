@@ -4,9 +4,10 @@ import SwupHeadPlugin from "@swup/head-plugin";
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',
+  animationSelector: '.transition-loader',
   plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), 
   ],
-
+  containers: ['#swup'],
 });
 swup.hooks.on('link:click', (visit) => {
   isMenuOpen.set(false);

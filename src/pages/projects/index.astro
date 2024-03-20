@@ -1,6 +1,19 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Projects from "@components/content/projects.svelte";
+import { urlFor } from "@lib/utils/image";
+import { Image } from "astro:assets";
+import { get } from "svelte/store";
+import { categoryStore } from "@lib/stores/fetchData.ts";
+interface Category {
+  _id: string;
+  title: string;
+  description: string;
+  slug: string;
+  mainImage: any;
+}
+let categories: Category[] = [];
+categories = get(categoryStore);
 ---
 
 <!-- Projects Page -->
@@ -8,5 +21,27 @@ import Projects from "@components/content/projects.svelte";
   title="Hyceate's Project Page"
   description="The page for a list of all project categories."
 >
-  <Projects client:load />
+  <hgroup class="flex justify-center flex-col items-center mt-10 mb-20">
+    <h1 class="text-6xl mb-9 font-medium">Projects</h1>
+    <h2>Projects consist of personal and commercial purposes.</h2>
+  </hgroup>
+  <div class="flex flex-col justify-center w-full">
+    {
+      categories.length
+        ? categories.map((category) => (
+            <Projects client:load data={category}>
+              <Image
+                class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
+                loading="lazy"
+                width="1280"
+                height="720"
+                src={urlFor(category.mainImage).width(1280).height(720).url()}
+                alt={category?.mainImage.alt}
+                slot="image"
+              />
+            </Projects>
+          ))
+        : "Error with fetching categories."
+    }
+  </div>
 </Layout>

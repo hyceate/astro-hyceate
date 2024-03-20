@@ -27,7 +27,7 @@ let pathname = Astro.url.pathname;
 	<body class="flex flex-col items-center">
 		<aside
 			id="loader"
-			class="hidden fixed z-[999] flex justify-center items-center w-full h-dvh"
+			class="hidden opacity-0 transition-loader duration-500 fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
 			<div class="z-[20]"><Loader /></div>
 			<div
