@@ -94,7 +94,7 @@
         id="menu-content"
         in:fly|global={{ y: -500, duration: 400 }}
         out:fly|global={{ duration: 200 }}
-        class="flex flex-col items-center px-10 lg:hidden fixed h-dvh py-10 overflow-y-scroll"
+        class="flex flex-col items-center px-10 lg:hidden fixed h-dvh py-10 overflow-x-clip overflow-y-scroll"
         use:clickOutside
         on:click_outside={handleClickOutside}
       >
