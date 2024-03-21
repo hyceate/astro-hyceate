@@ -13,7 +13,6 @@ import tailwind from "@astrojs/tailwind";
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import swup from '@swup/astro';
-import { astroImageTools } from "astro-imagetools";
 import { vite as vidstack } from 'vidstack/plugins';
 import sanity from "@sanity/astro";
 // https://astro.build/config
@@ -29,9 +28,9 @@ export default defineConfig({
   //   apiVersion,
 }
   ),
-  astroImageTools,
   swup({ globalInstance: true })
 ],
+
   output: "hybrid",
   adapter: cloudflare({
     imageService: 'passthrough',

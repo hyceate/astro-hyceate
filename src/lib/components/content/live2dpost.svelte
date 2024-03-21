@@ -35,11 +35,11 @@
     id="side"
     class="inline-flex flex-auto mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
 		{post.youtubeEmbed.aspectRatio == '9/16'
-      ? 'max-lg:max-w-[25rem] lg:max-w-[23rem] xl:w-[90rem]'
+      ? 'aspect-[9/16] max-lg:max-w-[25rem] lg:max-w-[23rem] xl:w-[90rem]'
       : post.youtubeEmbed.aspectRatio == '1/1'
-        ? 'md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem]'
+        ? 'aspect-square md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem] '
         : // next line 16:9
-          'max-lg:basis-full lg:max-w-[61%] xl:max-w-[90rem]'}"
+          'aspect-video max-lg:basis-full lg:max-w-[61%] xl:max-w-[90rem]'}"
   >
     {#if isMounted}
       <Player data={post} />

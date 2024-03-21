@@ -9,7 +9,7 @@
 	title={video.video.title}
 	src="youtube/{video.video.id}"
 	playsInline
-	class="media-player w-full h-full rounded-lg overflow-hidden"
+	class="media-player w-full h-full rounded-mdoverflow-hidden"
 	style="aspect-ratio: {video.aspectRatio};background-color: transparent;"
 	controls={video.controls}
 	loop
@@ -19,7 +19,7 @@
 >
 	<media-provider>
 		<media-poster
-			class="absolute inset-0 block h-full w-full rounded-lg border-1 border-rose-200 bg-primary opacity-0 transition-opacity data-[visible]:opacity-100 [&>img]:h-full [&>img]:w-full [&>img]:object-cover"
+			class="absolute inset-0 block h-full w-full rounded-md border-1 border-rose-200 bg-primary opacity-0 transition-opacity data-[visible]:opacity-100 [&>img]:h-full [&>img]:w-full [&>img]:object-cover"
 			src="https://i.ytimg.com/vi_webp/{video.video.id}/maxresdefault.webp"
 			alt="thumbnail for ${video.video.title}"
 		/>

@@ -1,8 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Projects from "@components/content/projects.svelte";
-import { urlFor } from "@lib/utils/image";
-import { Image } from "astro:assets";
 import { categoryQuery } from "@lib/utils/queries";
 import { sanityClient } from "sanity:client";
 interface NavLinks {
@@ -28,19 +26,7 @@ categories = await sanityClient.fetch(categoryQuery);
   <div class="flex flex-col justify-center w-full">
     {
       categories.length ? (
-        categories.map((category) => (
-          <Projects category={category}>
-            <Image
-              class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
-              loading="lazy"
-              width="1280"
-              height="720"
-              src={urlFor(category.mainImage).width(1280).height(720).url()}
-              alt={category?.mainImage.alt}
-              slot="image"
-            />
-          </Projects>
-        ))
+        categories.map((category) => <Projects category={category} />)
       ) : (
         <h1>"Error fetching"</h1>
       )

@@ -1,20 +1,19 @@
 <script lang="ts">
   export let category: any;
-  // import { categoryStore } from "@lib/stores/fetchData.ts";
-  // import { urlFor } from "@lib/utils/image";
-  // import { Image } from "astro:assets";
-  // interface Category {
-  //   _id: string;
-  //   title: string;
-  //   description: string;
-  //   slug: string;
-  //   mainImage: any;
-  // }
-  // let categories: Category[] = [];
-  // $: {
-  //   categories = $categoryStore;
-  //   // console.log(categories);
-  // }
+  import { categoryStore } from "@lib/stores/fetchData.ts";
+  import { urlFor } from "@lib/utils/image";
+  import { Image } from "@unpic/svelte";
+  interface Category {
+    _id: string;
+    title: string;
+    description: string;
+    slug: string;
+    mainImage: any;
+  }
+  let categories: Category[] = [];
+  $: {
+    categories = $categoryStore;
+  }
 </script>
 
 <!-- 
@@ -34,7 +33,18 @@
       class="border-2 border-darkBorder rounded-lg w-full m-15 overflow-hidden relative transition-all"
     >
       <figure class="absolute left-0 -top-36 rounded-lg">
-        <slot name="image" />
+        <!-- <slot name="image" /> -->
+        <Image
+          class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
+          loading="lazy"
+          decoding="async"
+          layout="fullWidth"
+          width={1280}
+          height={720}
+          background="auto"
+          src={urlFor(category.mainImage).width(1280).height(720).url()}
+          alt={category?.mainImage.alt}
+        />
       </figure>
       <div
         class="w-full h-full absolute left-0 top-0 bg-rose-100/80 hover:bg-rose-200/80 transition-all"

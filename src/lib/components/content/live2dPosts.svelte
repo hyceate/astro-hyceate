@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Image } from "@unpic/svelte";
   // import { urlFor } from "@lib/utils/image";
   export let post: any;
   export let category: string;
@@ -11,12 +12,16 @@
 >
   <a href="/projects/{category}/{post.slug}">
     <figure class="w-full max-h-[15rem] overflow-hidden">
-      <slot name="image" />
-      <!-- <img
-				class="flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center"
-				src={urlFor(post.coverImage).width(1280).height(720).url()}
-				alt={post.coverImage.alt}
-			/> -->
+      <!-- <slot name="image" /> -->
+      <Image
+        class="flex-[1_1_auto] h-full w-full min-h-[10rem] min-w-[15rem] rounded-md object-cover object-center"
+        src={`https://i.ytimg.com/vi_webp/${post.youtubeEmbed.video.id}/maxresdefault.webp`}
+        loading="lazy"
+        decoding="async"
+        layout="fullWidth"
+        background="auto"
+        alt={post.coverImage.alt}
+      />
     </figure>
   </a>
 </li>
