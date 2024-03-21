@@ -4,7 +4,7 @@ import SwupHeadPlugin from "@swup/head-plugin";
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',
-  animationSelector: '.transition-loader',
+  animationSelector: '[class*="transition-"]',
   plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), 
   ],
   containers: ['#swup'],
@@ -19,7 +19,7 @@ swup.hooks.on('animation:out:start', () => {
   isLoading.set(true);
 });
 
-swup.hooks.on('animation:in:end', () => {
+swup.hooks.on('content:replace', () => {
   document.querySelector('#loader').classList.add('hidden');
   document.querySelector('#loader-bg').classList.add('hidden');
   isLoading.set(false);

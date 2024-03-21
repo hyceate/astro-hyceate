@@ -9,22 +9,15 @@ interface NavLinks {
   slug: string;
   mainImage: any;
 }
-
-async function getData() {
-  const response = await sanityClient.fetch(categoryQuery);
-  return response as NavLinks[];
-}
-// Create a readable store with an empty array as the initial value
-export const categoryStore = readable<NavLinks[]>([], set => {
-  async function fetchData() {
-      try {
-        const category = await getData();
-        set(category); // Set the initial value of the store
-      } catch (error) {
-        console.error('Error fetching categories', error);
-      }
-  }
-  fetchData(); // Initial data fetch
+export const categoryStore = readable<NavLinks[]>([], (set) => {
+  (async () => {
+    try {
+      const categories = await sanityClient.fetch(categoryQuery);
+      set(categories); // Set the fetched categories as the initial value
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  })();
 });
 
 import { getPosts } from '@lib/utils/queries';

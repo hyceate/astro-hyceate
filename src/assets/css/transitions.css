@@ -1,16 +1,20 @@
+/* Define a transition duration during page visits */
 html.is-changing .transition-fade {
-  transition: opacity 10ms;
-  opacity: 0.99;
+  transition: opacity 250ms ease-in-out;
+  opacity: 1;
 }
 
+/* Define the styles for the unloaded pages */
 html.is-animating .transition-fade {
   opacity: 0;
 }
 
 html.is-changing .transition-loader {
+  transition: opacity 0.25s;
   opacity: 1;
 }
 
-html.is-animating .transition-loader {
+html.is-changing.is-rendering .transition-loader {
+  transition: opacity 0.25s;
   opacity: 0;
 }

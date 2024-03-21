@@ -3,18 +3,17 @@ import Layout from "@layouts/Layout.astro";
 import Projects from "@components/content/projects.svelte";
 import { urlFor } from "@lib/utils/image";
 import { Image } from "astro:assets";
-import { get } from "svelte/store";
-import { categoryStore } from "@lib/stores/fetchData.ts";
-interface Category {
+import { categoryQuery } from "@lib/utils/queries";
+import { sanityClient } from "sanity:client";
+interface NavLinks {
   _id: string;
   title: string;
   description: string;
   slug: string;
   mainImage: any;
 }
-let categories: Category[] = [];
-categories = get(categoryStore);
-console.log(categories);
+let categories: NavLinks[] = [];
+categories = await sanityClient.fetch(categoryQuery);
 ---
 
 <!-- Projects Page -->
@@ -28,21 +27,32 @@ console.log(categories);
   </hgroup>
   <div class="flex flex-col justify-center w-full">
     {
-      categories.length
-        ? categories.map((category) => (
-            <Projects data={category}>
-              <Image
-                class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
-                loading="lazy"
-                width="1280"
-                height="720"
-                src={urlFor(category.mainImage).width(1280).height(720).url()}
-                alt={category?.mainImage.alt}
-                slot="image"
-              />
-            </Projects>
-          ))
-        : "Error with fetching categories."
+      categories.length ? (
+        categories.map((category) => (
+          <Projects category={category}>
+            <Image
+              class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
+              loading="lazy"
+              width="1280"
+              height="720"
+              src={urlFor(category.mainImage).width(1280).height(720).url()}
+              alt={category?.mainImage.alt}
+              slot="image"
+            />
+          </Projects>
+        ))
+      ) : (
+        <h1>"Error fetching"</h1>
+      )
     }
+    <!-- <Projects>
+      <Image
+        class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
+        loading="lazy"
+        src={urlFor(category.mainImage).width(1280).height(720).url()}
+        alt={category?.mainImage.alt}
+        slot="image"
+      />
+    </Projects> -->
   </div>
 </Layout>
