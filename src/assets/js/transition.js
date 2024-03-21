@@ -9,18 +9,18 @@ const swup = new Swup({
   ],
   containers: ['#swup'],
 });
-swup.hooks.on('link:click', (visit) => {
+swup.hooks.on('link:click', () => {
   isMenuOpen.set(false);
   isLoading.set(true);
 });
 swup.hooks.on('animation:out:start', () => {
+  isLoading.set(true);
   document.querySelector('#loader').classList.remove('hidden');
   document.querySelector('#loader-bg').classList.remove('hidden');
-  isLoading.set(true);
 });
 
-swup.hooks.on('content:replace', () => {
+swup.hooks.on('animation:in:end', () => {
+  isLoading.set(false);
   document.querySelector('#loader').classList.add('hidden');
   document.querySelector('#loader-bg').classList.add('hidden');
-  isLoading.set(false);
 });

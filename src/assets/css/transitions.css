@@ -7,14 +7,13 @@ html.is-changing .transition-fade {
 /* Define the styles for the unloaded pages */
 html.is-animating .transition-fade {
   opacity: 0;
+  transition: opacity 250ms ease-in-out;
 }
 
-html.is-changing .transition-loader {
-  transition: opacity 0.25s;
+html.is-animating #loader {
   opacity: 1;
 }
 
-html.is-changing.is-rendering .transition-loader {
-  transition: opacity 0.25s;
-  opacity: 0;
+html.is-animating #loader-bg {
+  opacity: .8;
 }

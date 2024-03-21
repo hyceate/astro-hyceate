@@ -25,20 +25,19 @@ let pathname = Astro.url.pathname;
 		<CommonHead title={title} description={description} />
 	</head>
 	<body class="flex flex-col items-center">
+		<!-- loader -->
 		<aside
 			id="loader"
-			class="hidden opacity-0 transition-loader fixed z-[999] flex justify-center items-center w-full h-dvh"
+			class="hidden opacity-0 fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
-			<div class="z-[20] opacity-0 transition-loader">
-				<Loader client:only="svelte" />
-			</div>
+			<div class="loader z-20"></div>
 			<div
 				id="loader-bg"
-				class="hidden transition-loader fixed overflow-hidden w-full h-dvh left-0 -top-0 bg-primary/80 backdrop-blur-sm z-[10]"
+				class="hidden fixed overflow-hidden w-full h-dvh left-0 -top-0 bg-primary/80 backdrop-blur-sm z-[10]"
 			>
 			</div>
 		</aside>
-
+		<!-- end loader -->
 		<Headroom offset={0} tolerance={5} duration="350ms" client:load>
 			<Header url={pathname} client:load />
 		</Headroom>
@@ -50,7 +49,58 @@ let pathname = Astro.url.pathname;
 				<slot />
 			</article>
 		</main>
-		<style is:global></style>
+		<style is:global>
+			.loader {
+				width: 50px;
+				height: 75px;
+				display: grid;
+				color: #d63f3f;
+				background:
+					linear-gradient(currentColor 0 0) top/100% 2px,
+					radial-gradient(
+							farthest-side at top,
+							#ff929200 calc(100% - 2px),
+							currentColor calc(100% - 1px),
+							#f7595900
+						)
+						top,
+					linear-gradient(currentColor 0 0) bottom/100% 2px,
+					radial-gradient(
+							farthest-side at bottom,
+							#ff4f4f00 calc(100% - 2px),
+							currentColor calc(100% - 1px),
+							#9e1a1a00
+						)
+						bottom;
+				background-size:
+					100% 1px,
+					100% 50%;
+				background-repeat: no-repeat;
+				animation: spin-scale 4s infinite linear;
+			}
+			.loader::before,
+			.loader::after {
+				content: "";
+				grid-area: 1/1;
+				background: inherit;
+				border: inherit;
+				animation: inherit;
+			}
+			.loader::after {
+				animation-duration: 2s;
+			}
+			@keyframes spin-scale {
+				0% {
+					transform: rotate(0turn) scale(1);
+				}
+				50% {
+					transform: rotate(0.5turn) scale(0.8);
+				}
+				100% {
+					transform: rotate(1turn) scale(1);
+				}
+			}
+		</style>
 		<script src="@assets/js/transition.js"></script>
 	</body>
 </html>
