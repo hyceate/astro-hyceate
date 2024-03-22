@@ -26,7 +26,9 @@ categories = await sanityClient.fetch(categoryQuery);
   <div class="flex flex-col justify-center w-full">
     {
       categories.length ? (
-        categories.map((category) => <Projects category={category} />)
+        categories.map((category) => (
+          <Projects category={category} client:load />
+        ))
       ) : (
         <h1>"Error fetching"</h1>
       )

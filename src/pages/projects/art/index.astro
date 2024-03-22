@@ -20,7 +20,7 @@ let posts = postsFetched.posts;
       )
     }
     <ul class="flex flex-wrap max-w-6xl justify-center md:justify-normal">
-      <ArtList category={category} posts={posts} />
+      <ArtList category={category} posts={posts} client:load />
     </ul>
   </section>
 </Layout>
