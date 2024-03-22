@@ -30,7 +30,6 @@ export default defineConfig({
   ),
   swup({ globalInstance: true })
 ],
-
   output: "hybrid",
   adapter: cloudflare({
     imageService: 'passthrough',
@@ -42,5 +41,12 @@ export default defineConfig({
       vidstack({ include: /player\// }),
     ],
     minify: 'esbuild',
+    build: {
+      terserOptions: {
+        format: {
+          comments: false, // Remove comments
+        },
+      },
+    },
   },
 });
