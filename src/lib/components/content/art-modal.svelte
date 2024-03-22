@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Image } from "@unpic/svelte";
   import { createEventDispatcher } from "svelte";
   import { showModal } from "@lib/stores/stores";
   export let imageUrl: string;

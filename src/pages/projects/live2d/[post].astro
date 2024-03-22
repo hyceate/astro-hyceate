@@ -22,6 +22,7 @@ export async function getStaticPaths() {
     };
   });
 }
+
 const { post } = Astro.params;
 const postData = await fetchSingle("live2d", post);
 

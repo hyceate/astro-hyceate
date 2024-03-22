@@ -49,7 +49,7 @@
     <!-- <a class="modal-link" href="/projects/{category}/{post.slug}"> -->
     <!-- A11y: '' is not a valid href attribute -->
     <a
-      href="/projects/{category}/#{post.slug}"
+      href="#{post.slug}"
       data-no-swup
       on:click|preventDefault={() =>
         openModal(

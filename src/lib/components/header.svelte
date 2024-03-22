@@ -95,7 +95,7 @@
         id="menu-content"
         in:fly|global={{ y: -500, duration: 400 }}
         out:fly|global={{ duration: 200 }}
-        class="flex flex-col items-center px-10 lg:hidden fixed w-full h-dvh max-h-[82vh] top-20 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
+        class="flex flex-col items-center px-10 lg:hidden fixed w-full h-dvh max-h-[82dvh] top-20 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
         use:clickOutside
         on:click_outside={handleClickOutside}
       >
