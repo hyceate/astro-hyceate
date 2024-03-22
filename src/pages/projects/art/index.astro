@@ -14,9 +14,11 @@ let posts = postsFetched.posts;
   ><section class="flex flex-col justify-start items-center">
     {
       postsFetched?.categoryQuery && (
-        <h1 class="text-4xl uppercase mb-10 font-medium tracking-wider">
-          {postsFetched?.categoryQuery}
-        </h1>
+        <hgroup class="flex justify-center flex-col items-center mt-10 mb-10">
+          <h1 class="text-6xl mb-9 font-medium">
+            {postsFetched?.categoryQuery}
+          </h1>
+        </hgroup>
       )
     }
     <ul class="flex flex-wrap max-w-6xl justify-center md:justify-normal">
