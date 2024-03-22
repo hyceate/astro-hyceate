@@ -47,7 +47,6 @@ a {
 
 @layer utilities {
   .major-button {
-    position: relative;
     overflow: hidden;
     box-shadow: 0px 5px 0px #5f4444;
     background-color: #fcb6a9;

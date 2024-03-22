@@ -13,19 +13,25 @@
   }
 </script>
 
-<!-- A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. -->
 <div
-  class="modal flex justify-center items-center"
+  class="modal flex justify-center items-center relative"
   style="display: {showModal ? 'flex' : 'none'}"
   on:click={closeModal}
+  aria-hidden="true"
 >
-  <button class="close" on:click={closeModal}>&times;</button>
-  <div
-    class="modal-content fixed h-full p-5"
-    on:click={(e) => e.stopPropagation()}
+  <button
+    class="close major-button absolute h-10 w-10 shadow z-20 top-2 right-2"
+    title="Close"
+    on:click={closeModal}
+    aria-label="Close">&times;</button
   >
-    <figure class="w-full h-full">
-      <img class="w-auto h-full" src={imageUrl} alt={altText} />
+  <div
+    class="modal-content fixed h-full"
+    on:click={(e) => e.stopPropagation()}
+    aria-hidden="true"
+  >
+    <figure class="w-full h-full p-5">
+      <img class="w-full h-full object-contain" src={imageUrl} alt={altText} />
     </figure>
   </div>
 </div>
@@ -45,11 +51,12 @@
 
   /* Style for the close button */
   .close {
-    color: #aaa;
+    color: #d83c3c;
     float: right;
-    font-size: 28px;
+    font-size: 3rem;
     font-weight: bold;
     cursor: pointer;
+    line-height: 0;
   }
 
   .close:hover,
