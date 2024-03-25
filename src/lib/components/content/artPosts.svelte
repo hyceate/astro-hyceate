@@ -1,4 +1,5 @@
 <script lang="ts">
+  export const prerender = false;
   import { Image } from "@unpic/svelte";
   import { urlFor } from "@lib/utils/image";
   import { showModal } from "@lib/stores/stores";
@@ -26,7 +27,6 @@
   }
 
   function closeModal() {
-    showModal.set(false);
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   onMount(() => {
@@ -45,7 +45,9 @@
 </script>
 
 {#each posts as post}
-  <li class="art-card">
+  <li
+    class="art-card mb-2 mr-2 flex-[1_0_25%] w-full justify-center items-center rounded-lg transition-all hover:scale-[105%] transition-transform ease-in-out motion-reduce:transition-none motion-reduce:hover:transform-none"
+  >
     <!-- <a class="modal-link" href="/projects/{category}/{post.slug}"> -->
     <!-- A11y: '' is not a valid href attribute -->
     <a
@@ -58,31 +60,28 @@
           post.slug,
         )}
     >
-      <section
-        class="flex flex-[1_1_0%] w-full justify-center items-center border-2 border-darkBorder rounded-lg transition-all hover:scale-105 transition-transform ease-in-out motion-reduce:transition-none motion-reduce:hover:transform-none"
-      >
-        {#if post.mainImage}
-          <figure class="max-w-[30rem] rounded-lg min-h-[15rem] min-w-[15rem]">
-            <Image
-              class="flex-1 h-full w-dvw min-h-[15rem] min-w-[15rem] rounded-md object-cover object-center"
-              src={urlFor(post.mainImage).width(500).height(300).url()}
-              loading="lazy"
-              decoding="async"
-              layout="fullWidth"
-              background="auto"
-              alt={post.mainImage.alt}
-            />
-            <!-- <slot name="image" /> -->
-          </figure>
-        {/if}
-      </section>
+      {#if post.mainImage}
+        <figure
+          class="min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden"
+        >
+          <Image
+            class="h-full w-full object-fill object-center "
+            src={urlFor(post.mainImage).width(1024).height(576).url()}
+            aspectRatio={16 / 9}
+            loading="lazy"
+            decoding="async"
+            background="auto"
+            alt={post.mainImage.alt}
+          />
+        </figure>
+        <!-- <slot name="image" /> -->
+      {/if}
     </a>
   </li>
 {/each}
-{#if $showModal}
-  <ArtModal
-    imageUrl={modalImageUrl}
-    altText={modalAltText}
-    on:close={closeModal}
-  />
-{/if}
+
+<ArtModal
+  imageUrl={modalImageUrl}
+  altText={modalAltText}
+  on:close={closeModal}
+/>
