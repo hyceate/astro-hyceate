@@ -45,7 +45,7 @@
 
 {#each posts as post}
   <li
-    class="art-card mb-2 mr-2 flex-[1_0_25%] w-full justify-center items-center rounded-lg transition-all hover:scale-[105%] transition-transform ease-in-out motion-reduce:transition-none motion-reduce:hover:transform-none"
+    class="art-card mb-2 mr-2 flex-[1_0_30%] w-full justify-center items-center rounded-lg transition-all hover:scale-[105%] transition-transform ease-in-out motion-reduce:transition-none motion-reduce:hover:transform-none"
   >
     <!-- <a class="modal-link" href="/projects/{category}/{post.slug}"> -->
     <!-- A11y: '' is not a valid href attribute -->
@@ -65,7 +65,7 @@
         >
           <Image
             class="h-full w-full object-fill object-center "
-            src={urlFor(post.mainImage).width(1024).height(576).url()}
+            src={urlFor(post.mainImage).width(800).height(720).url()}
             aspectRatio={16 / 9}
             loading="lazy"
             decoding="async"
