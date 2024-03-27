@@ -1,5 +1,4 @@
 <script lang="ts">
-  export const prerender = false;
   import { Image } from "@unpic/svelte";
   import { urlFor } from "@lib/utils/image";
   import { showModal } from "@lib/stores/stores";
