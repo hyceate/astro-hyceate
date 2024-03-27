@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Image } from "@unpic/svelte";
-  import { fade, fly } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import { showModal } from "@lib/stores/stores";
   export let imageUrl: string;
@@ -27,12 +27,7 @@
   >
   {#if $showModal}
     <div class="h-full" transition:fly={{ y: 20 }}>
-      <Image
-        class="p-5 h-full !object-contain"
-        layout="constrained"
-        src={imageUrl}
-        alt={altText}
-      />
+      <img class="p-5 h-full" src={imageUrl} alt={altText} />
     </div>
   {/if}
 </div>

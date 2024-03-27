@@ -1,11 +1,13 @@
 <script lang="ts">
+  // @ts-ignore
   import { Image } from "@unpic/svelte";
   import { urlFor } from "@lib/utils/image";
   import { showModal } from "@lib/stores/stores";
+  import { fetchList } from "@lib/stores/fetchData";
   import { onMount } from "svelte";
   import ArtModal from "@components/content/art-modal.svelte";
-  export let posts: any;
-  export let category: string;
+  const category = "art";
+
   // console.log(`Post Data for art Cards`, post);
   let modalImageUrl: string = "";
   let modalAltText: string = "";
@@ -28,7 +30,10 @@
   function closeModal() {
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
-  onMount(() => {
+  let posts: any = [];
+  onMount(async () => {
+    const data = await fetchList(category);
+    posts = data.posts;
     const slug = window.location.hash.substring(1); // Get the slug from the URL hashtag
     if (slug) {
       const post = posts.find((p: any) => p.slug === slug); // Find the post with matching slug
@@ -67,6 +72,7 @@
             class="h-full w-full object-fill object-center "
             src={urlFor(post.mainImage).width(800).height(720).url()}
             aspectRatio={16 / 9}
+            width={1280}
             loading="lazy"
             decoding="async"
             background="auto"

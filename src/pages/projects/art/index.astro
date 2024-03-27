@@ -3,27 +3,17 @@
 
 import Layout from "@layouts/Layout.astro";
 import ArtList from "@components/content/artPosts.svelte";
-import { fetchList } from "@lib/stores/fetchData";
 
-const category = "art";
-let postsFetched = await fetchList(category);
-let posts = postsFetched.posts;
 // console.log("posts fetched", posts);
 ---
 
 <Layout title="Hyceate's Arts Page" description="Hyceate's list of artworks."
   ><section class="flex flex-col justify-start items-center">
-    {
-      postsFetched?.categoryQuery && (
-        <hgroup class="flex justify-center flex-col items-center mt-10 mb-10">
-          <h1 class="text-6xl mb-9 font-medium">
-            {postsFetched?.categoryQuery}
-          </h1>
-        </hgroup>
-      )
-    }
+    <hgroup class="flex justify-center flex-col items-center mt-10 mb-10">
+      <h1 class="text-6xl mb-9 font-medium">art</h1>
+    </hgroup>
     <ul class="flex flex-wrap max-w-6xl justify-center md:justify-normal">
-      <ArtList category={category} posts={posts} client:load />
+      <ArtList client:only="svelte" />
     </ul>
   </section>
 </Layout>
