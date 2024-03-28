@@ -9,13 +9,7 @@
 	class="flex flex-col justify-center items-center m-auto overflow-clip"
 >
 	<div class="max-w-[35rem]">
-		<lottie-player
-			src="/landing.json"
-			autoplay
-			controls={false}
-			loop
-			mode="normal"
-		/>
+		<lottie-player src="/landing.json" autoplay loop mode="normal" />
 	</div>
 	<!-- <img
 		class="w-full max-w-[35rem] transform"
