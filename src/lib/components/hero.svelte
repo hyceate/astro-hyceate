@@ -1,7 +1,7 @@
 <script lang="ts">
 	// import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
 	import "@lottiefiles/lottie-player";
-	// import landing from "@asspublic/landing.json
+	import landing from "@assets/animation/landing.json";
 </script>
 
 <div
@@ -9,7 +9,7 @@
 	class="flex flex-col justify-center items-center m-auto overflow-clip"
 >
 	<div class="max-w-[35rem]">
-		<lottie-player src="/landing.json" autoplay loop mode="normal" />
+		<lottie-player src={JSON.stringify(landing)} autoplay loop mode="normal" />
 	</div>
 	<!-- <img
 		class="w-full max-w-[35rem] transform"
