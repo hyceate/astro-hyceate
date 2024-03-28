@@ -5,7 +5,10 @@
 	import vgen from "@assets/svg/vgen.svg";
 </script>
 
-<ul id="social-links" class="flex flex-wrap justify-start items-center w-full">
+<ul
+	id="social-links"
+	class="flex flex-wrap justify-start max-md:justify-center items-center w-full"
+>
 	<li class="major-button">
 		<a href="https://twitter.com/hyceate"
 			><img src={x.src} class="" alt="x.com or formally known as twitter" /></a
@@ -32,9 +35,8 @@
 	#social-links li {
 		padding: 0.2rem;
 		border-radius: 10px;
-	}
-	#social-links li:not(:last-child) {
-		margin-inline-end: 1rem;
+		margin-inline-end: 0.4em;
+		margin-bottom: 0.5em;
 	}
 	#social-links li a img {
 		width: 1.85rem;
