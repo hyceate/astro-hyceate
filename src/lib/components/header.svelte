@@ -100,7 +100,7 @@
         on:click_outside={handleClickOutside}
       >
         <ul
-          class="font-[Lexend] navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 max-lg:w-52 text-6xl"
+          class="font-[Lexend] navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 max-lg:w-52 text-5xl"
           in:fly={{ y: -20, delay: 200, duration: 550, easing: cubicInOut }}
           out:fade={{
             delay: 0,
