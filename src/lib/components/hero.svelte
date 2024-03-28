@@ -16,6 +16,8 @@
 			background="transparent"
 			renderer="svg"
 			controls={false}
+			width={560}
+			height={526.81}
 		/>
 	</div>
 	<!-- <img
