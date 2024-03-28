@@ -16,7 +16,7 @@
 		src={landing.src}
 		alt="Hyceate at a desk with a graphics tablet"
 	/> -->
-	<h1 class="text-9xl max-md:text-7xl text-[#db7471]">hyceate</h1>
+	<h1 class="text-9xl max-md:text-6xl text-[#db7471]">hyceate</h1>
 </div>
 
 <style>
