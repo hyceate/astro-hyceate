@@ -16,8 +16,6 @@
 			background="transparent"
 			renderer="svg"
 			controls={false}
-			width={560}
-			height={526.81}
 		/>
 	</div>
 	<!-- <img
@@ -27,3 +25,6 @@
 	/> -->
 	<h1 class="text-9xl max-md:text-7xl text-[#db7471]">hyceate</h1>
 </div>
+
+<style>
+</style>
