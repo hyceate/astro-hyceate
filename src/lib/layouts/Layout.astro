@@ -18,7 +18,10 @@ let pathname = Astro.url.pathname;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/hy_roundBG.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<CommonHead title={title} description={description} />

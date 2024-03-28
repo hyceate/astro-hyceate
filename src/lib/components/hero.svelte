@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+	// import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+	import "@lottiefiles/lottie-player";
 	import Landing from "@assets/animation/landing.json";
 	// import landing from "@assets/svg/landing_1.svg";
 </script>
@@ -9,7 +10,7 @@
 	class="flex flex-col justify-center items-center m-auto overflow-clip"
 >
 	<div class="max-w-[35rem]">
-		<LottiePlayer
+		<lottie-player
 			src={Landing}
 			autoplay={true}
 			loop={true}
