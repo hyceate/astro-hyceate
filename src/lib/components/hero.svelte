@@ -10,14 +10,7 @@
 	class="flex flex-col justify-center items-center m-auto overflow-clip"
 >
 	<div class="max-w-[35rem]">
-		<lottie-player
-			src={Landing}
-			autoplay={true}
-			loop={true}
-			background="transparent"
-			renderer="svg"
-			controls={false}
-		/>
+		<lottie-player src={Landing} autoplay controls={false} loop mode="normal" />
 	</div>
 	<!-- <img
 		class="w-full max-w-[35rem] transform"
