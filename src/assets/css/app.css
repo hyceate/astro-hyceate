@@ -45,7 +45,11 @@ a {
   color: #db7471;
 }
 
-
+@layer base {
+  .text-stroke {
+    text-shadow: -1px -1px 0 #f3edeb, 1px -1px 0 #f3edeb, -1px 1px 0 #f3edeb, 1px 1px 0 #f3edeb;
+  }
+}
 
 @layer utilities {
   .major-button {

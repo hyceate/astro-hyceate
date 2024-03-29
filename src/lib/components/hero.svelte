@@ -34,7 +34,12 @@
 	<!-- <div class="max-w-[37rem]">
 		<lottie-player src={JSON.stringify(landing)} autoplay loop mode="normal" />
 	</div> -->
-	<h1 class="text-9xl max-md:text-6xl text-[#db7471]">hyceate</h1>
+	<h1
+		class="absolute font-medium bottom-[20dvh] text-9xl max-md:text-8xl max-md:bottom-[25dvh] max-sm:bottom-[30dvh] max-sm:text-[20dvw] text-[#db7471] text-stroke"
+	>
+		hyceate
+	</h1>
+	<div class="h-[10rem]" tabindex="-1"></div>
 </div>
 
 <style>
