@@ -1,24 +1,39 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	// import "@lottiefiles/lottie-player";
-	import { DotLottieSvelte } from "@lottiefiles/dotlottie-svelte";
+	import { DotLottie } from "@lottiefiles/dotlottie-web";
 	// import landing from "@assets/animation/landing.json";
 	// @ts-ignore
 	import landing2 from "@assets/animation/Landing.lottie";
+	onMount(() => {
+		const dotLottie = new DotLottie({
+			autoplay: true,
+			loop: true,
+			layout: {
+				fit: "fit-width",
+				align: [0.5, 0.5],
+			},
+			canvas: document.querySelector("#dotlottie-canvas"),
+			src: landing2, // or .json file
+		});
+	});
 </script>
 
 <div
 	id="hero"
 	class="flex flex-col justify-center items-center m-auto overflow-clip"
 >
-	<DotLottieSvelte src={landing2} loop autoplay />
-	<!-- <div class="max-w-[35rem]">
+	<div class="overflow-clip max-w-[37rem]">
+		<canvas
+			id="dotlottie-canvas"
+			style="width: 100%; height: 100%"
+			width="700"
+			height="680"
+		></canvas>
+	</div>
+	<!-- <div class="max-w-[37rem]">
 		<lottie-player src={JSON.stringify(landing)} autoplay loop mode="normal" />
 	</div> -->
-	<!-- <img
-		class="w-full max-w-[35rem] transform"
-		src={landing.src}
-		alt="Hyceate at a desk with a graphics tablet"
-	/> -->
 	<h1 class="text-9xl max-md:text-6xl text-[#db7471]">hyceate</h1>
 </div>
 
