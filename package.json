@@ -40,6 +40,7 @@
     "vidstack": "^1.10.9"
   },
   "devDependencies": {
+    "@lottiefiles/dotlottie-svelte": "^0.1.2",
     "@lottiefiles/lottie-player": "^2.0.4",
     "vite": "^5.2.6"
   }
