@@ -31,9 +31,9 @@
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   function handleKeyDown(event: KeyboardEvent) {
-    if (($showModal = true && event.key === "Escape")) {
+    if ($showModal === true && event.key === "Escape") {
       closeModal();
-      showModal.set(false);
+      $showModal = false;
     }
   }
   let posts: any = [];
