@@ -95,7 +95,7 @@
         id="menu-content"
         in:fly|global={{ y: -500, duration: 400 }}
         out:fly|global={{ duration: 200 }}
-        class="flex flex-col items-center px-10 lg:hidden fixed w-full h-dvh max-h-[82dvh] top-20 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
+        class="flex flex-col items-center px-5 lg:hidden fixed w-full h-dvh max-h-[50dvh] top-16 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
         use:clickOutside
         on:click_outside={handleClickOutside}
       >
@@ -108,18 +108,18 @@
             easing: cubicOut,
           }}
         >
-          <li class="w-full"><a href="/" aria-label="home">Home</a></li>
-          <!-- dropdown -->
           <li class="w-full">
-            <a href="/projects" aria-label="projects">Projects</a>
+            <a href="/">Home</a>
           </li>
           <li class="w-full">
-            <a href="/projects/art" aria-label="art">art</a>
+            <a href="/projects/art">art</a>
           </li>
           <li class="w-full">
-            <a href="/projects/live2d" aria-label="live2d">live2d</a>
+            <a href="/projects/live2d">live2d</a>
           </li>
-          <!-- end dropdown -->
+          <li class="w-full">
+            <a href="/contact">contact</a>
+          </li>
         </ul>
         <aside
           class="bottom-0 max-md:visible md:hidden lg:hidden"
@@ -135,14 +135,6 @@
       </div>
     </section>
   {/if}
-  <!-- {#if $isMenuOpen}
-    <div
-      id="menuOverlay"
-      in:fade={{ duration: 300 }}
-      out:fade={{ duration: 400 }}
-      class="fixed rounded-lg w-full h-dvh top-[100%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:hidden bg_menu_overlay z-[15] backdrop-blur-lg"
-    ></div>
-  {/if} -->
   <!-- Desktop Navbar -->
   <div
     id="menu"
@@ -151,9 +143,10 @@
     <ul
       class="navbar font-[Lexend] flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52 text-2xl"
     >
-      <li><a href="/" aria-label="home">Home</a></li>
+      <li><a href="/">Home</a></li>
       <!-- dropdown -->
-      <li><a href="/projects" aria-label="projects">Projects</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
       <!-- end dropdown -->
     </ul>
   </div>

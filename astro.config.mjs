@@ -38,7 +38,6 @@ export default defineConfig({
   vite: {
     assetsInclude: ['**/*.lottie'],
     plugins: [
-      // Include filter to only check specific files for components and styles.
       vidstack({ include: /player\// }),
     ],
     minify: 'esbuild',

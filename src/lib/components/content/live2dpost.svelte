@@ -1,7 +1,6 @@
 <!-- Single Live2d Post -->
 <script lang="ts">
   import { PortableText } from "@portabletext/svelte";
-  import Player from "@components/player/Player.svelte";
   import returnButton from "@assets/svg/return.svg";
   import link from "@assets/svg/link.svg";
   import video from "@assets/svg/video.svg";
@@ -9,10 +8,7 @@
   export let data: any;
   let post: any = data.data[0];
   // console.log("Single live2d: ", post);
-  let isMounted = false;
-  onMount(async () => {
-    isMounted = true;
-  });
+  onMount(async () => {});
 </script>
 
 <div id="back-button" class="justify-start self-start min-w-full mb-10">
@@ -41,9 +37,9 @@
         : // next line 16:9
           'aspect-video max-lg:basis-full lg:max-w-[61%] xl:max-w-[90rem]'}"
   >
-    {#if isMounted}
-      <Player data={post} />
-    {/if}
+    {#await import("@components/player/Player.svelte") then { default: Player }}
+      <svelte:component this={Player} data={post} />
+    {/await}
   </section>
   <section
     id="side-info"

@@ -30,6 +30,12 @@
   function closeModal() {
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
+  function handleKeyDown(event: KeyboardEvent) {
+    if (($showModal = true && event.key === "Escape")) {
+      closeModal();
+      showModal.set(false);
+    }
+  }
   let posts: any = [];
   onMount(async () => {
     const data = await fetchList(category);
@@ -45,6 +51,10 @@
         );
       }
     }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   });
 </script>
 
