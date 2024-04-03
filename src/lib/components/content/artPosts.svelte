@@ -4,7 +4,7 @@
   import { urlFor } from "@lib/utils/image";
   import { showModal } from "@lib/stores/stores";
   import { fetchList } from "@lib/stores/fetchData";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import ArtModal from "@components/content/art-modal.svelte";
   const category = "art";
 
@@ -28,6 +28,8 @@
   }
 
   function closeModal() {
+    modalImageUrl = null;
+    modalAltText = null;
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   function handleKeyDown(event: KeyboardEvent) {
@@ -52,9 +54,11 @@
       }
     }
     window.addEventListener("keydown", handleKeyDown);
-    return () => {
+  });
+  onDestroy(() => {
+    if (typeof window !== "undefined") {
       window.removeEventListener("keydown", handleKeyDown);
-    };
+    }
   });
 </script>
 
@@ -83,7 +87,7 @@
             src={urlFor(post.mainImage).width(800).height(720).url()}
             aspectRatio={16 / 9}
             width={1280}
-            loading="lazy"
+            priority={true}
             decoding="async"
             background="auto"
             alt={post.mainImage.alt}

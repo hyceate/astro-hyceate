@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { Image } from "@unpic/svelte";
-  import { fly } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import { showModal } from "@lib/stores/stores";
   export let imageUrl: string;
@@ -20,20 +18,18 @@
   aria-hidden="true"
 >
   <button
-    class="close major-button absolute h-10 w-10 shadow z-20 top-0 right-50"
+    class="close major-button absolute h-10 w-10 shadow z-[4000] top-0 right-50"
     title="Close"
     on:click={closeModal}
     aria-label="Close">&times;</button
   >
-  {#if $showModal}
-    <div id="modal-image" class="h-full">
-      <img
-        class="p-5 h-full {$showModal ? 'isLoaded' : ''}"
-        src={imageUrl}
-        alt={altText}
-      />
-    </div>
-  {/if}
+  <div id="modal-image" class="max-w-full max-h-full">
+    <img
+      class="p-5 {$showModal ? 'isLoaded' : ''} max-w-full max-h-full"
+      src={imageUrl}
+      alt={altText}
+    />
+  </div>
 </div>
 
 <style>
@@ -49,6 +45,9 @@
     top: 0;
     width: 100%;
     height: 100%;
+    user-select: none;
+    touch-action: pan-x pinch-zoom;
+    pointer-events: none;
     opacity: 0;
     visibility: hidden;
     overflow: auto;
@@ -59,16 +58,17 @@
       z-index 0.5s;
   }
   .isLoaded {
+    pointer-events: auto;
     opacity: 1;
     visibility: visible;
     z-index: 2000;
   }
   #modal-image img {
-    top: 50px;
-    transition: top 0.5s ease;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
   }
-  img.isLoaded {
-    top: 0px;
+  #modal-image img.isLoaded {
+    transform: scale(1);
   }
   /* Style for the close button */
   .close {
