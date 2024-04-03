@@ -26,8 +26,12 @@
     aria-label="Close">&times;</button
   >
   {#if $showModal}
-    <div class="h-full" transition:fly={{ y: 20 }}>
-      <img class="p-5 h-full" src={imageUrl} alt={altText} />
+    <div id="modal-image" class="h-full">
+      <img
+        class="p-5 h-full {$showModal ? 'isLoaded' : ''}"
+        src={imageUrl}
+        alt={altText}
+      />
     </div>
   {/if}
 </div>
@@ -57,7 +61,14 @@
   .isLoaded {
     opacity: 1;
     visibility: visible;
-    z-index: 9999;
+    z-index: 2000;
+  }
+  #modal-image img {
+    top: 50px;
+    transition: top 0.5s ease;
+  }
+  img.isLoaded {
+    top: 0px;
   }
   /* Style for the close button */
   .close {
