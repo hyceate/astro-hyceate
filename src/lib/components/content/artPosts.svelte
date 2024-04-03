@@ -64,7 +64,7 @@
 
 {#each posts as post}
   <li
-    class="art-card mb-2 mr-2 flex-[1_0_30%] w-full justify-center items-center rounded-lg transition-all hover:scale-[105%] transition-transform ease-in-out motion-reduce:transition-none motion-reduce:hover:transform-none"
+    class="art-card flex-[1_1_20%] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
   >
     <!-- <a class="modal-link" href="/projects/{category}/{post.slug}"> -->
     <!-- A11y: '' is not a valid href attribute -->
@@ -73,28 +73,25 @@
       data-no-swup
       on:click|preventDefault={() =>
         openModal(
-          urlFor(post.mainImage).width(800).url(),
+          urlFor(post.mainImage).width(720).url(),
           post.mainImage.alt,
           post.slug,
         )}
     >
-      {#if post.mainImage}
-        <figure
-          class="min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden"
-        >
-          <Image
-            class="h-full w-full object-fill object-center "
-            src={urlFor(post.mainImage).width(800).height(720).url()}
-            aspectRatio={16 / 9}
-            width={1280}
-            priority={true}
-            decoding="async"
-            background="auto"
-            alt={post.mainImage.alt}
-          />
-        </figure>
-        <!-- <slot name="image" /> -->
-      {/if}
+      <figure
+        class="min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden"
+      >
+        <Image
+          class="h-full w-full object-fill object-center "
+          src={urlFor(post.mainImage).width(800).height(720).url()}
+          aspectRatio={16 / 9}
+          width={1280}
+          priority={true}
+          decoding="async"
+          background="auto"
+          alt={post.mainImage.alt}
+        />
+      </figure>
     </a>
   </li>
 {/each}

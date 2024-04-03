@@ -8,11 +8,11 @@ import ArtList from "@components/content/artPosts.svelte";
 ---
 
 <Layout title="Hyceate's Arts Page" description="Hyceate's list of artworks."
-  ><section class="flex flex-col justify-start items-center">
+  ><section class="inline-flex flex-col justify-center items-center">
     <hgroup class="flex justify-center flex-col items-center mt-10 mb-10">
       <h1 class="text-6xl mb-9 font-medium">art</h1>
     </hgroup>
-    <ul class="flex flex-wrap max-w-6xl justify-center md:justify-normal">
+    <ul class="flex flex-wrap max-w-6xl gap-1 justify-center">
       <ArtList client:load />
     </ul>
   </section>
