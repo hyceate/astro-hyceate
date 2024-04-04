@@ -6,7 +6,7 @@ export const categoryQuery = `*[_type == "category"]{
 }`;
 
 export const getPosts = (query:string) => {
-  return `*[_type == "${query}"] {
+  return `*[_type == "${query}"] | order(_createdAt desc){
     _id,
     coverImage,
     mainImage,
