@@ -13,7 +13,7 @@ import ArtList from "@components/content/artPosts.svelte";
       <h1 class="text-6xl mb-9 font-medium">art</h1>
     </hgroup>
     <ul class="flex flex-wrap max-w-6xl gap-1 justify-center">
-      <ArtList client:only="svelte" />
+      <ArtList client:load />
     </ul>
   </section>
 </Layout>
