@@ -33,7 +33,7 @@
 >
   <section
     id="side"
-    class="flex flex-auto mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
+    class="flex flex-1 mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
 		{post.youtubeEmbed.aspectRatio == '9/16'
       ? 'aspect-[9/16] max-lg:max-w-[25rem] lg:max-w-[23rem] xl:w-[90rem]'
       : post.youtubeEmbed.aspectRatio == '1/1'
@@ -53,7 +53,7 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'lg:w-[60rem] max-lg:basis-full '
         : // next line 16:9
-          'max-lg:basis-full'}"
+          'max-lg:flex-[0_1_100%]'}"
   >
     <h1 id="post-title" class="text-3xl tracking-tight font-bold uppercase">
       {post.title}
