@@ -53,7 +53,7 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'lg:w-[60rem] max-lg:basis-full '
         : // next line 16:9
-          'max-lg:flex-[0_1_100%]'}"
+          'max-lg:basis-full'}"
   >
     <h1 id="post-title" class="text-3xl tracking-tight font-bold uppercase">
       {post.title}
