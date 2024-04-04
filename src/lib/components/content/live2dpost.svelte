@@ -39,7 +39,7 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'aspect-square md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem] '
         : // next line 16:9
-          'aspect-video max-lg:basis-full'}"
+          'aspect-video max-w-[50rem] max-lg:basis-full'}"
   >
     {#if isMounted}
       <Player data={post} />
