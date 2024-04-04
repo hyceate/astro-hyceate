@@ -107,7 +107,7 @@
         </li>
       {/if}
     </ul>
-    <p class="text-md prose lg:prose-xl">
+    <p class="text-md prose prose-base lg:prose-xl">
       <PortableText value={post.body} components={{}} />
     </p>
   </section>
