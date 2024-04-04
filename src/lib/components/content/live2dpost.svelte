@@ -35,7 +35,7 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'aspect-square md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem] '
         : // next line 16:9
-          'aspect-video max-lg:basis-full lg:max-w-[61%] xl:max-w-[90rem]'}"
+          'aspect-video max-lg:basis-full lg:max-w-[60dvw] xl:max-w-[90rem]'}"
   >
     {#await import("@components/player/Player.svelte") then { default: Player }}
       <svelte:component this={Player} data={post} />
@@ -47,8 +47,9 @@
 	{post.youtubeEmbed.aspectRatio == '9/16'
       ? 'max-lg:basis-full'
       : post.youtubeEmbed.aspectRatio == '1/1'
-        ? 'lg:w-[60rem] max-lg:basis-full ' // next line 16:9
-        : 'max-lg:basis-full xl:max-w-[90rem]'}"
+        ? 'lg:w-[60rem] max-lg:basis-full '
+        : // next line 16:9
+          'max-lg:basis-full xl:max-w-[90rem]'}"
   >
     <h1 id="post-title" class="text-3xl tracking-tight font-bold uppercase">
       {post.title}
