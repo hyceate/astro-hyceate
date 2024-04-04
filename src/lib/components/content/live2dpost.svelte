@@ -35,7 +35,7 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'aspect-square md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem] '
         : // next line 16:9
-          'aspect-video max-lg:basis-full lg:max-w-[60dvw] xl:max-w-[90rem]'}"
+          'aspect-video'}"
   >
     {#await import("@components/player/Player.svelte") then { default: Player }}
       <svelte:component this={Player} data={post} />
