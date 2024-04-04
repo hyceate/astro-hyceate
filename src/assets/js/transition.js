@@ -7,6 +7,8 @@ const swup = new Swup({
   animationSelector: '[class*="transition-"]',
   plugins: [new SwupA11yPlugin(), 
     new SwupHeadPlugin({
+      persistAssets: true,
+      awaitAssets:true,
     }), 
   ],
   containers: ['#swup'],
