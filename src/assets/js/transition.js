@@ -4,7 +4,6 @@ import SwupHeadPlugin from "@swup/head-plugin";
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',
-  native: true,
   animationSelector: '[class*="transition-"]',
   plugins: [new SwupA11yPlugin(), 
     new SwupHeadPlugin({
