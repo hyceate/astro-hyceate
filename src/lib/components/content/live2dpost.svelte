@@ -4,11 +4,15 @@
   import returnButton from "@assets/svg/return.svg";
   import link from "@assets/svg/link.svg";
   import video from "@assets/svg/video.svg";
+  import Player from "@components/player/Player.svelte";
   import { onMount } from "svelte";
   export let data: any;
   let post: any = data.data[0];
   // console.log("Single live2d: ", post);
-  onMount(async () => {});
+  let isMounted = false;
+  onMount(async () => {
+    isMounted = true;
+  });
 </script>
 
 <div id="back-button" class="justify-start self-start min-w-full mb-10">
@@ -29,17 +33,20 @@
 >
   <section
     id="side"
-    class="inline-flex flex-auto mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
+    class="flex flex-auto mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
 		{post.youtubeEmbed.aspectRatio == '9/16'
       ? 'aspect-[9/16] max-lg:max-w-[25rem] lg:max-w-[23rem] xl:w-[90rem]'
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'aspect-square md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem] '
         : // next line 16:9
-          'aspect-video'}"
+          'aspect-video max-lg:basis-full'}"
   >
-    {#await import("@components/player/Player.svelte") then { default: Player }}
+    {#if isMounted}
+      <Player data={post} />
+    {/if}
+    <!-- {#await import("@components/player/Player.svelte") then { default: Player }}
       <svelte:component this={Player} data={post} />
-    {/await}
+    {/await} -->
   </section>
   <section
     id="side-info"
@@ -49,7 +56,7 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'lg:w-[60rem] max-lg:basis-full '
         : // next line 16:9
-          'max-lg:basis-full xl:max-w-[90rem]'}"
+          'max-lg:basis-full'}"
   >
     <h1 id="post-title" class="text-3xl tracking-tight font-bold uppercase">
       {post.title}
