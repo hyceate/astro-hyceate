@@ -38,6 +38,7 @@
       $showModal = false;
     }
   }
+  let data: any = [];
   let posts: any = [];
   onMount(async () => {
     const data = await fetchList(category);
@@ -62,6 +63,11 @@
   });
 </script>
 
+<ArtModal
+  imageUrl={modalImageUrl}
+  altText={modalAltText}
+  on:close={closeModal}
+/>
 {#each posts as post}
   <li
     class="art-card flex-[1_1_20%] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
@@ -95,9 +101,3 @@
     </a>
   </li>
 {/each}
-
-<ArtModal
-  imageUrl={modalImageUrl}
-  altText={modalAltText}
-  on:close={closeModal}
-/>
