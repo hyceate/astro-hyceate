@@ -39,19 +39,16 @@
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'aspect-square md:min-w-[30rem] sm:max-w-[32rem] lg:min-w-[500px] max-lg:max-w-[32rem] xl:max-w-[36rem] '
         : // next line 16:9
-          'aspect-video max-w-[50rem] max-lg:basis-full'}"
+          'aspect-video max-w-[50rem]'}"
   >
     {#if isMounted}
       <Player data={post} />
     {/if}
-    <!-- {#await import("@components/player/Player.svelte") then { default: Player }}
-      <svelte:component this={Player} data={post} />
-    {/await} -->
   </section>
   <section
     id="side-info"
     class="self-start flex-[0_1_31%] w-full ml-0 lg:ml-10 text-pretty
-	{post.youtubeEmbed.aspectRatio == '9/16'
+	  {post.youtubeEmbed.aspectRatio == '9/16'
       ? 'max-lg:basis-full'
       : post.youtubeEmbed.aspectRatio == '1/1'
         ? 'lg:w-[60rem] max-lg:basis-full '
