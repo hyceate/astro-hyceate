@@ -9,13 +9,14 @@
   const category = "art";
 
   // console.log(`Post Data for art Cards`, post);
-  let modalImageUrl: string = "";
-  let modalAltText: string = "";
+  let modalImageUrl: string = null;
+  let modalAltText: string = null;
+  let modalOpen = false;
 
   function openModal(imageUrl: string, altText: string, slug: string) {
     modalImageUrl = imageUrl;
     modalAltText = altText;
-    showModal.set(true);
+    modalOpen = true;
     const modalParams = new URLSearchParams();
     modalParams.set("imageUrl", imageUrl);
     modalParams.set("altText", altText);
@@ -28,18 +29,17 @@
   }
 
   function closeModal() {
-    $showModal = false;
+    modalOpen = false;
     modalImageUrl = null;
     modalAltText = null;
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   function handleKeyDown(event: KeyboardEvent) {
-    if ($showModal === true && event.key === "Escape") {
+    if (modalOpen === true && event.key === "Escape") {
       closeModal();
-      $showModal = false;
+      modalOpen = false;
     }
   }
-  let data: any = [];
   let posts: any = [];
   onMount(async () => {
     const data = await fetchList(category);
@@ -99,7 +99,7 @@
 {/each}
 <!-- MODAL -->
 <div
-  class="modal {$showModal ? 'isLoaded' : ''}"
+  class="modal {modalOpen ? 'isLoaded' : ''}"
   on:click={closeModal}
   aria-hidden="true"
 >
@@ -111,7 +111,7 @@
   >
   <div id="modal-image" class="max-w-full max-h-full">
     <img
-      class="p-5 {$showModal ? 'isLoaded' : ''} max-w-full max-h-full"
+      class="p-5 {modalOpen ? 'isLoaded' : ''} max-w-full max-h-full"
       src={modalImageUrl}
       alt={modalAltText}
     />
