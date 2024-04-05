@@ -21,6 +21,7 @@ html,
 body {
   font-size: 10px;
   margin: 0;
+  min-width: 1080px;
   min-height: 100%;
   width: 100dvw;
   display: flex;

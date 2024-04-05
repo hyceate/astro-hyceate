@@ -151,7 +151,7 @@
   }
   #modal-image img {
     transform: scale(0.95);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
   }
   #modal-image img.isLoaded {
     transform: scale(1);
