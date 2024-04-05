@@ -101,9 +101,9 @@
   on:click={closeModal}
   aria-hidden="true"
 >
-  <div id="modal-image" class="max-w-full max-h-full mx-auto">
+  <div id="modal-image" class="max-w-full max-h-full mx-auto relative">
     <button
-      class="close major-button absolute h-10 w-10 shadow z-[4000] top-0 right-50"
+      class="close major-button h-10 w-10 shadow z-[4000]"
       title="Close"
       on:click={closeModal}
       aria-label="Close">&times;</button
@@ -157,8 +157,9 @@
   }
   /* Style for the close button */
   .close {
+    position: absolute;
+    right: 0;
     color: #d83c3c;
-    float: right;
     font-size: 3rem;
     font-weight: bold;
     cursor: pointer;
