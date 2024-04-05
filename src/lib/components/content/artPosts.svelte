@@ -9,8 +9,8 @@
   const category = "art";
 
   // console.log(`Post Data for art Cards`, post);
-  let modalImageUrl: string = null;
-  let modalAltText: string = null;
+  let modalImageUrl: string = "";
+  let modalAltText: string = "";
   let modalOpen = false;
 
   function openModal(imageUrl: string, altText: string, slug: string) {
