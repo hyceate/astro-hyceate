@@ -101,15 +101,15 @@
   on:click={closeModal}
   aria-hidden="true"
 >
-  <button
-    class="close major-button absolute h-10 w-10 shadow z-[4000] top-0 right-50"
-    title="Close"
-    on:click={closeModal}
-    aria-label="Close">&times;</button
-  >
-  <div id="modal-image" class="max-h-full mx-auto">
+  <div id="modal-image" class="fixed max-h-full mx-auto">
+    <button
+      class="close major-button absolute h-10 w-10 shadow z-[4000] top-0 right-50"
+      title="Close"
+      on:click={closeModal}
+      aria-label="Close">&times;</button
+    >
     <img
-      class="p-3 {modalOpen ? 'isLoaded' : ''} max-h-full"
+      class="p-3 {modalOpen ? 'isLoaded' : ''} "
       src={modalImageUrl}
       alt={modalAltText}
     />
@@ -124,7 +124,6 @@
     align-items: center;
     position: fixed;
     z-index: 1000;
-    left: 0;
     top: 0;
     width: 100%;
     height: 100%;
