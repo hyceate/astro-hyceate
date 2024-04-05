@@ -101,10 +101,7 @@
   on:click={closeModal}
   aria-hidden="true"
 >
-  <div
-    id="modal-image"
-    class="block min-h-full max-w-full max-h-full mx-auto relative"
-  >
+  <div id="modal-image" class="block max-w-full max-h-full mx-auto relative">
     <button
       class="close major-button h-10 w-10 shadow z-[4000] {modalOpen
         ? 'isLoaded'
