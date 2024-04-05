@@ -103,7 +103,7 @@
 >
   <div
     id="modal-image"
-    class="block min-w-[30rem] max-w-full max-h-full mx-auto relative"
+    class="block min-h-full max-w-full max-h-full mx-auto relative"
   >
     <button
       class="close major-button h-10 w-10 shadow z-[4000] {modalOpen
