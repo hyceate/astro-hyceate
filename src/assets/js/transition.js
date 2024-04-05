@@ -10,10 +10,10 @@ const swup = new Swup({
   native:true,
   plugins: [new SwupA11yPlugin(), new SwupPreloadPlugin(),
     new SwupHeadPlugin({
-      awaitAssets:true,
     }), 
   ],
   containers: ['#swup'],
+  timeout: 5_000
 });
 swup.hooks.on('link:click', () => {
   isMenuOpen.set(false);
