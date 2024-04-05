@@ -7,7 +7,6 @@ import { isMenuOpen, isLoading } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',
   animationSelector: '[class*="transition-"]',
-  native:true,
   plugins: [new SwupA11yPlugin(), new SwupPreloadPlugin(),
     new SwupHeadPlugin({
     }), 
