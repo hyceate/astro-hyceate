@@ -101,7 +101,12 @@
   on:click={closeModal}
   aria-hidden="true"
 >
-  <div id="modal-image" class="block max-w-full max-h-full mx-auto relative">
+  <div id="modal-image" class="flex justify-center relative max-h-full">
+    <img
+      class="p-3 {modalOpen ? 'isLoaded' : ''} max-w-full max-h-full"
+      src={modalImageUrl}
+      alt={modalAltText}
+    />
     <button
       class="close major-button h-10 w-10 shadow z-[4000] {modalOpen
         ? 'isLoaded'
@@ -110,11 +115,6 @@
       on:click={closeModal}
       aria-label="Close">&times;</button
     >
-    <img
-      class="p-3 {modalOpen ? 'isLoaded' : ''}  max-w-full max-h-full"
-      src={modalImageUrl}
-      alt={modalAltText}
-    />
   </div>
 </div>
 
@@ -148,9 +148,8 @@
     visibility: visible;
     z-index: 4000;
   }
+
   #modal-image img {
-    max-width: 100%;
-    max-height: 100%;
     will-change: transform;
     transform: scale(0.97);
     transition: transform 0.5s ease;
