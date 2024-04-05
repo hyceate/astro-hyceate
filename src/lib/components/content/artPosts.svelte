@@ -110,9 +110,9 @@
     on:click={closeModal}
     aria-label="Close">&times;</button
   >
-  <div id="modal-image" class="max-w-full max-h-full">
+  <div id="modal-image" class="max-h-full mx-auto">
     <img
-      class="p-5 {modalOpen ? 'isLoaded' : ''} max-w-full max-h-full"
+      class="p-3 {modalOpen ? 'isLoaded' : ''} max-h-full"
       src={modalImageUrl}
       alt={modalAltText}
     />
