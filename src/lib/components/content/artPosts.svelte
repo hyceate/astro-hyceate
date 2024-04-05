@@ -101,7 +101,10 @@
   on:click={closeModal}
   aria-hidden="true"
 >
-  <div id="modal-image" class="max-w-full max-h-full mx-auto relative">
+  <div
+    id="modal-image"
+    class="block min-w-[30rem] max-w-full max-h-full mx-auto relative"
+  >
     <button
       class="close major-button h-10 w-10 shadow z-[4000] {modalOpen
         ? 'isLoaded'
@@ -111,7 +114,7 @@
       aria-label="Close">&times;</button
     >
     <img
-      class="p-3 {modalOpen ? 'isLoaded' : ''} max-w-full max-h-full"
+      class="p-3 {modalOpen ? 'isLoaded' : ''}  max-w-full max-h-full"
       src={modalImageUrl}
       alt={modalAltText}
     />
@@ -161,6 +164,7 @@
   /* Style for the close button */
   .close {
     position: absolute;
+    top: 0;
     right: 0;
     color: #d83c3c;
     font-size: 3rem;
@@ -168,8 +172,11 @@
     cursor: pointer;
     line-height: 0;
     opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
   }
   .close.isLoaded {
+    visibility: visible;
     opacity: 1;
   }
   .close:hover,
