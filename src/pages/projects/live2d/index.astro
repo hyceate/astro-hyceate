@@ -23,7 +23,7 @@ let posts = postsFetched?.posts;
     }
     <ul
       id="live2d-cards"
-      class="flex flex-wrap max-w-6xl justify-center md:justify-normal"
+      class="flex flex-wrap gap-2 max-w-6xl justify-center md:justify-normal"
     >
       <Live2dList category={category} posts={posts} client:only="svelte" />
     </ul>
