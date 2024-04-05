@@ -5,4 +5,3 @@ export const menuNano = atom(false);
 export const isMenuOpen = writable(false);
 export const isLoading = writable(false);
 export const isReady = writable(false);
-export const showModal = writable(false);
