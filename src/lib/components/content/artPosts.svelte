@@ -17,6 +17,7 @@
     modalImageUrl = imageUrl;
     modalAltText = altText;
     modalOpen = true;
+
     const modalParams = new URLSearchParams();
     modalParams.set("imageUrl", imageUrl);
     modalParams.set("altText", altText);
@@ -118,13 +119,7 @@
   </div>
 </div>
 
-<!-- <ArtModal
-  imageUrl={modalImageUrl}
-  altText={modalAltText}
-  on:close={closeModal}
-/> -->
 <style>
-  /* Style for the modal */
   .modal {
     display: flex;
     flex-direction: column;
