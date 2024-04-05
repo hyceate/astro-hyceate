@@ -103,7 +103,9 @@
 >
   <div id="modal-image" class="max-w-full max-h-full mx-auto relative">
     <button
-      class="close major-button h-10 w-10 shadow z-[4000]"
+      class="close major-button h-10 w-10 shadow z-[4000] {modalOpen
+        ? 'isLoaded'
+        : ''}"
       title="Close"
       on:click={closeModal}
       aria-label="Close">&times;</button
@@ -139,6 +141,7 @@
       visibility 0.5s,
       z-index 0.5s;
   }
+
   .isLoaded {
     pointer-events: auto;
     opacity: 1;
@@ -164,8 +167,11 @@
     font-weight: bold;
     cursor: pointer;
     line-height: 0;
+    opacity: 0;
   }
-
+  .close.isLoaded {
+    opacity: 1;
+  }
   .close:hover,
   .close:focus {
     color: black;
