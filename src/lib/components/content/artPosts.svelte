@@ -76,7 +76,7 @@
       data-no-swup
       on:click|preventDefault={() =>
         openModal(
-          urlFor(post.mainImage).width(720).url(),
+          urlFor(post.mainImage).width(800).url(),
           post.mainImage.alt,
           post.slug,
         )}
@@ -129,17 +129,15 @@
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100dvw;
     height: 100%;
-    user-select: none;
-    touch-action: pan-x pinch-zoom;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
     transition:
-      opacity 0.5s ease,
+      opacity 0.2s ease,
       visibility 0.5s,
       z-index 0.5s;
   }
@@ -150,8 +148,8 @@
     z-index: 2000;
   }
   #modal-image img {
-    transform: scale(0.95);
-    transition: transform 0.4s ease;
+    transform: scale(0.97);
+    transition: transform 0.5s ease;
   }
   #modal-image img.isLoaded {
     transform: scale(1);
