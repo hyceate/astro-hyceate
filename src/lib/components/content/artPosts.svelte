@@ -147,6 +147,7 @@
     z-index: 4000;
   }
   #modal-image img {
+    will-change: transform;
     transform: scale(0.97);
     transition: transform 0.5s ease;
   }
