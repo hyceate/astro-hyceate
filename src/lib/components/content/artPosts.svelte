@@ -2,10 +2,8 @@
   // @ts-ignore
   import { Image } from "@unpic/svelte";
   import { urlFor } from "@lib/utils/image";
-  import { showModal } from "@lib/stores/stores";
   import { fetchList } from "@lib/stores/fetchData";
   import { onMount, onDestroy } from "svelte";
-  // import ArtModal from "@components/content/art-modal.svelte";
   const category = "art";
 
   // console.log(`Post Data for art Cards`, post);
@@ -69,8 +67,7 @@
   <li
     class="art-card flex-[1_1_20%] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
   >
-    <!-- <a class="modal-link" href="/projects/{category}/{post.slug}"> -->
-    <!-- A11y: '' is not a valid href attribute -->
+    <!-- <a href="/projects/{category}/{post.slug}"> -->
     <a
       href="#{post.slug}"
       data-no-swup
@@ -129,8 +126,10 @@
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100dvw;
+    width: 100%;
     height: 100%;
+    user-select: none;
+    touch-action: pan-x pinch-zoom;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
@@ -145,7 +144,7 @@
     pointer-events: auto;
     opacity: 1;
     visibility: visible;
-    z-index: 2000;
+    z-index: 4000;
   }
   #modal-image img {
     transform: scale(0.97);
