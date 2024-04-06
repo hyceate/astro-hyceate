@@ -12,7 +12,7 @@ const swup = new Swup({
   plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupPreloadPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({}), 
   ],
   containers: ['#swup'],
-  timeout: 5_000
+  timeout: 5000
 });
 swup.hooks.on('link:click', () => {
   isMenuOpen.set(false);
