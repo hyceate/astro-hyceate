@@ -1,15 +1,15 @@
 import Swup from "swup";
+// import SwupDebugPlugin from '@swup/debug-plugin';
 import SwupFadeTheme from '@swup/fade-theme';
 import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
-import SwupPreloadPlugin from '@swup/preload-plugin';
 import SwupProgressPlugin from '@swup/progress-plugin';
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
 
 const swup = new Swup({
   linkToSelf: 'navigate',
   animationSelector: '[class*="transition-"]',
-  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupPreloadPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({awaitAssets: true}), 
+  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({awaitAssets: true}),
   ],
   containers: ['#swup'],
   timeout: 5000
