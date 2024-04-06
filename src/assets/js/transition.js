@@ -9,7 +9,7 @@ import { isMenuOpen, isLoading } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',
   animationSelector: '[class*="transition-"]',
-  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupPreloadPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({}), 
+  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupPreloadPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({awaitAssets: true}), 
   ],
   containers: ['#swup'],
   timeout: 5000
