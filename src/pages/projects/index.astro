@@ -23,7 +23,7 @@ categories = await sanityClient.fetch(categoryQuery);
     <h1 class="text-6xl mb-9 font-medium">Projects</h1>
     <h2>Projects consist of personal and commercial purposes.</h2>
   </hgroup>
-  <div class="flex flex-col justify-center w-full">
+  <div class="flex flex-col justify-center w-full gap-1">
     {
       categories.length ? (
         categories.map((category) => (

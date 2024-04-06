@@ -16,15 +16,43 @@ html.is-animating #loader-bg {
 
 .art-card,
 .live2d-card {
+  opacity: 1;
   transition: transform 250ms;
+  transform: scale(1);
 }
 
 html.is-rendering .art-card,
 html.is-rendering .live2d-card {
+  transform: scale(0.95);
   transition-delay: 10ms;
+  opacity: 0;
 }
 
 html.is-animating .art-card,
 html.is-animating .live2d-card {
-  transform: scale(0.8);
+  transform: scale(0.95);
+  transition-delay: 10ms;
+}
+
+#dotlottie-canvas {
+  transition: opacity 450ms ease, transform 400ms ease-in-out;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+html.is-rendering #dotlottie-canvas {
+  transition-delay: 10ms;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+#hero h1 {
+  transition: transform 300ms, opacity 250ms ease;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+html.is-rendering #hero h1 {
+  opacity: 0;
+  transform: translateY(-50px);
 }

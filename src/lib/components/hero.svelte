@@ -1,12 +1,14 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, onDestroy } from "svelte";
 	// import "@lottiefiles/lottie-player";
 	import { DotLottie } from "@lottiefiles/dotlottie-web";
 	// import landing from "@assets/animation/landing.json";
 	// @ts-ignore
 	import landing2 from "@assets/animation/Landing.lottie";
+
+	let dotLottie: DotLottie | null = null;
 	onMount(() => {
-		const dotLottie = new DotLottie({
+		dotLottie = new DotLottie({
 			autoplay: true,
 			loop: true,
 			layout: {
@@ -16,6 +18,15 @@
 			canvas: document.querySelector("#dotlottie-canvas"),
 			src: landing2, // or .json file
 		});
+	});
+	onDestroy(() => {
+		if (dotLottie) {
+			dotLottie = null;
+			const canvas = document.querySelector("#dotlottie-canvas");
+			if (canvas && canvas.parentNode) {
+				canvas.parentNode.removeChild(canvas);
+			}
+		}
 	});
 </script>
 
