@@ -44,6 +44,9 @@ dependencies:
   '@swup/astro':
     specifier: ^1.4.0
     version: 1.4.0
+  '@swup/fade-theme':
+    specifier: ^2.0.0
+    version: 2.0.0(swup@4.6.1)
   '@swup/head-plugin':
     specifier: ^2.2.0
     version: 2.2.0(swup@4.6.1)

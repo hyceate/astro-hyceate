@@ -1,4 +1,5 @@
 import Swup from "swup";
+import SwupFadeTheme from '@swup/fade-theme';
 import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
 import SwupPreloadPlugin from '@swup/preload-plugin';
@@ -8,7 +9,7 @@ import { isMenuOpen, isLoading } from "@lib/stores/stores";
 const swup = new Swup({
   linkToSelf: 'navigate',
   animationSelector: '[class*="transition-"]',
-  plugins: [new SwupA11yPlugin(), new SwupPreloadPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({}), 
+  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupPreloadPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({}), 
   ],
   containers: ['#swup'],
   timeout: 5_000
