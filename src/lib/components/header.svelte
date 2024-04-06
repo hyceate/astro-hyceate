@@ -109,7 +109,7 @@
           }}
         >
           <li class="w-full">
-            <a href="/">Home</a>
+            <a href="/index">Home</a>
           </li>
           <li class="w-full">
             <a href="/projects/art">art</a>
@@ -143,7 +143,7 @@
     <ul
       class="navbar font-[Lexend] flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52 text-2xl"
     >
-      <li><a href="/">Home</a></li>
+      <li><a href="/index">Home</a></li>
       <!-- dropdown -->
       <li><a href="/projects">Projects</a></li>
       <li><a href="/contact">Contact</a></li>
