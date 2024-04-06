@@ -7,7 +7,7 @@ import SwupProgressPlugin from '@swup/progress-plugin';
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
 
 const swup = new Swup({
-  linkToSelf: 'scroll',
+  linkToSelf: 'navigate',
   animationSelector: '[class*="transition-"]',
   plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({awaitAssets: true}),
   ],
@@ -18,6 +18,9 @@ swup.hooks.on('link:click', () => {
   isMenuOpen.set(false);
   isLoading.set(true);
 });
+swup.hooks.on('link:self', () => {
+  isLoading.set(false);
+})
 swup.hooks.on('animation:out:start', () => {
   isLoading.set(true);
   document.querySelector('#loader').classList.remove('hidden');
