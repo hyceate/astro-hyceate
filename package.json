@@ -25,6 +25,7 @@
     "@swup/astro": "^1.4.0",
     "@swup/head-plugin": "^2.2.0",
     "@swup/preload-plugin": "^3.2.10",
+    "@swup/progress-plugin": "^3.2.0",
     "@tailwindcss/typography": "^0.5.12",
     "@unpic/svelte": "^0.0.51",
     "astro": "^4.5.13",

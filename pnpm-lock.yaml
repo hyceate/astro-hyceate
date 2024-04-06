@@ -50,6 +50,9 @@ dependencies:
   '@swup/preload-plugin':
     specifier: ^3.2.10
     version: 3.2.10(swup@4.6.1)
+  '@swup/progress-plugin':
+    specifier: ^3.2.0
+    version: 3.2.0(swup@4.6.1)
   '@tailwindcss/typography':
     specifier: ^0.5.12
     version: 0.5.12(tailwindcss@3.4.3)
@@ -3297,7 +3300,7 @@ packages:
       '@swup/overlay-theme': 2.0.0(swup@4.6.1)
       '@swup/parallel-plugin': 0.3.1(swup@4.6.1)
       '@swup/preload-plugin': 3.2.10(swup@4.6.1)
-      '@swup/progress-plugin': 3.1.2(swup@4.6.1)
+      '@swup/progress-plugin': 3.2.0(swup@4.6.1)
       '@swup/route-name-plugin': 4.1.0(swup@4.6.1)
       '@swup/scripts-plugin': 2.1.0(swup@4.6.1)
       '@swup/scroll-plugin': 3.3.2(swup@4.6.1)
@@ -3428,8 +3431,8 @@ packages:
     resolution: {integrity: sha512-EF4DMdIGieEsuY2XK0PuLf7Uw7yUQOMbA6IdCMvvRvKXj03WLLpnNIFfFp+6hmMtXRSUE88VBpRyp6Giiu1Pbg==}
     dev: false
 
-  /@swup/progress-plugin@3.1.2(swup@4.6.1):
-    resolution: {integrity: sha512-cYLY5cPP9xIBzlf4X/KpjerZmzKfje3y9r/b4/bqwMsPLmViu0v94icXmIFte55GkhPWEuP1v1stooMLxgkDrg==}
+  /@swup/progress-plugin@3.2.0(swup@4.6.1):
+    resolution: {integrity: sha512-Ur+D4+aee9swR6pn7JbEyGMwVP1BTcN5ygjlno7IaSQ/vMZbuJ73po1RkKlIi86p+/PZ+1kynkH4K4eMZuHKKg==}
     peerDependencies:
       swup: ^4.0.0
     dependencies:
