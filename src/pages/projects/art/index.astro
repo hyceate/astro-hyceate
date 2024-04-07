@@ -13,7 +13,7 @@ import ArtList from "@components/content/artPosts.svelte";
       <h1 class="text-6xl mb-9 font-medium">art</h1>
     </hgroup>
     <ul id="artlist" class="flex flex-wrap max-w-6xl gap-2 justify-center">
-      <ArtList client:load />
+      <ArtList client:only="svelte" />
     </ul>
   </section>
 </Layout>
@@ -21,19 +21,14 @@ import ArtList from "@components/content/artPosts.svelte";
   #artlist {
     animation: 0.9s ease-out slideInFromBottom;
   }
-  li.art-card {
-    animation: 0.9s ease-out slideInFromBottom;
-  }
 
   @keyframes slideInFromBottom {
     from {
-      transform: scale(0.95);
-      transform: translateY(20px);
+      transform: translateY(20px) scale(0.95);
       opacity: 0;
     }
     to {
-      transform: scale(1);
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
       opacity: 1;
     }
   }
