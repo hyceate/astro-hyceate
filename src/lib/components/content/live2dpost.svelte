@@ -33,7 +33,7 @@
 >
   <section
     id="side"
-    class="flex flex-1 mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
+    class="flex flex-1 max-lg:flex-col w-full mb-5 static lg:sticky top-10 p-0 rounded-lg overflow-hidden bg-primary border-2 border-darkBorder transition-all
 		{post.youtubeEmbed.aspectRatio == '9/16'
       ? 'aspect-[9/16] max-lg:max-w-[25rem] lg:max-w-[23rem] xl:w-[90rem]'
       : post.youtubeEmbed.aspectRatio == '1/1'
