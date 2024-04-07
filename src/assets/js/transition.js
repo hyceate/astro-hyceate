@@ -5,9 +5,8 @@ import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
 import SwupProgressPlugin from '@swup/progress-plugin';
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
-import { DotLottie } from "@lottiefiles/dotlottie-web";
-import landing2 from "@assets/animation/Landing.lottie";
-
+import { isReady } from "@lib/stores/stores";
+import { get } from "svelte/store";
 
 const swup = new Swup({
   linkToSelf: 'navigate',
@@ -34,4 +33,21 @@ swup.hooks.on('animation:in:end', () => {
   isLoading.set(false);
   document.querySelector('#loader').classList.add('hidden');
   document.querySelector('#loader-bg').classList.add('hidden');
+});
+
+swup.hooks.on('page:view', () => {
+  // Access the current page URL
+  const currentPageUrl = window.location.pathname;;
+  
+  // Check if the current page URL is "/"
+  if (currentPageUrl === "/") {
+    isReady.set(true);
+      // Do something specific for the root URL "/"
+  } else {
+      console.log("The current page URL is not /");
+      // Do something for URLs other than "/"
+  }
+});
+swup.hooks.before('content:replace', () => {
+  isReady.set(false);
 });

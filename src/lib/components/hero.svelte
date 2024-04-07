@@ -3,22 +3,32 @@
 	import { DotLottie } from "@lottiefiles/dotlottie-web";
 	// @ts-ignore
 	import landing2 from "@assets/animation/Landing.lottie";
-
+	import { isReady } from "@lib/stores/stores";
 	let dotLottie: DotLottie | null = null;
 	onMount(() => {
-		dotLottie = new DotLottie({
-			autoplay: true,
-			loop: true,
-			layout: {
-				fit: "contain",
-				align: [0.5, 0.5],
-			},
-			canvas: document.querySelector("#dotlottie-canvas"),
-			src: landing2, // or .json file
-		});
+		$isReady = true;
+		if (!dotLottie) {
+			dotLottie = new DotLottie({
+				autoplay: true,
+				loop: true,
+				useFrameInterpolation: false,
+				layout: {
+					fit: "contain",
+					align: [0.5, 0.5],
+				},
+				canvas: document.querySelector("#dotlottie-canvas"),
+				src: landing2, // or .json file
+			});
+		} else {
+			dotLottie.stop();
+			dotLottie.play();
+		}
 	});
 	onDestroy(() => {
-		console.log("component destroyed");
+		if (dotLottie) {
+			dotLottie.destroy();
+			$isReady = false;
+		}
 	});
 </script>
 
@@ -43,20 +53,4 @@
 </div>
 
 <style>
-	#dotlottie-canvas {
-		animation: 0.5s ease-in-out slideInFromBottom;
-	}
-	#hero h1 {
-		animation: 0.6s ease-in-out slideInFromBottom;
-	}
-	@keyframes slideInFromBottom {
-		from {
-			transform: translateY(50px);
-			opacity: 0;
-		}
-		to {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
 </style>
