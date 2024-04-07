@@ -5,6 +5,9 @@ import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
 import SwupProgressPlugin from '@swup/progress-plugin';
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
+import { DotLottie } from "@lottiefiles/dotlottie-web";
+import landing2 from "@assets/animation/Landing.lottie";
+
 
 const swup = new Swup({
   linkToSelf: 'navigate',
@@ -32,3 +35,5 @@ swup.hooks.on('animation:in:end', () => {
   document.querySelector('#loader').classList.add('hidden');
   document.querySelector('#loader-bg').classList.add('hidden');
 });
+
+swup.cache.delete('/');

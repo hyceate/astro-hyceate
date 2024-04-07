@@ -4,8 +4,9 @@
 	// @ts-ignore
 	import landing2 from "@assets/animation/Landing.lottie";
 
+	let dotLottie: DotLottie | null = null;
 	onMount(() => {
-		const dotLottie = new DotLottie({
+		dotLottie = new DotLottie({
 			autoplay: true,
 			loop: true,
 			layout: {
@@ -17,9 +18,7 @@
 		});
 	});
 	onDestroy(() => {
-		if (dotLottie) {
-			dotLottie.destroy();
-		}
+		console.log("component destroyed");
 	});
 </script>
 
