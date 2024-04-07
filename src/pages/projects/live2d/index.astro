@@ -29,3 +29,22 @@ let posts = postsFetched?.posts;
     </ul>
   </section>
 </Layout>
+<style>
+  #live2d-cards {
+    animation: 0.9s ease-out slideInFromBottom;
+  }
+  li.live2d-card {
+    animation: 0.9s ease-out slideInFromBottom;
+  }
+
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

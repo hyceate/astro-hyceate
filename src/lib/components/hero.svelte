@@ -4,18 +4,22 @@
 	// @ts-ignore
 	import landing2 from "@assets/animation/Landing.lottie";
 
-	let dotLottie: DotLottie | null = null;
 	onMount(() => {
-		dotLottie = new DotLottie({
+		const dotLottie = new DotLottie({
 			autoplay: true,
 			loop: true,
 			layout: {
-				fit: "fit-width",
+				fit: "contain",
 				align: [0.5, 0.5],
 			},
 			canvas: document.querySelector("#dotlottie-canvas"),
 			src: landing2, // or .json file
 		});
+	});
+	onDestroy(() => {
+		if (dotLottie) {
+			dotLottie.destroy();
+		}
 	});
 </script>
 
