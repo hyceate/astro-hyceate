@@ -35,5 +35,3 @@ swup.hooks.on('animation:in:end', () => {
   document.querySelector('#loader').classList.add('hidden');
   document.querySelector('#loader-bg').classList.add('hidden');
 });
-
-swup.cache.delete('/');
