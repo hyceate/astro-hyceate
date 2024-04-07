@@ -26,7 +26,7 @@
 	id="hero"
 	class="flex flex-col justify-center items-center m-auto overflow-clip"
 >
-	<div class="overflow-clip max-w-[37rem]">
+	<div id="lottie-container" class="overflow-clip max-w-[37rem]">
 		<canvas
 			id="dotlottie-canvas"
 			style="width: 100%; height: 100%"

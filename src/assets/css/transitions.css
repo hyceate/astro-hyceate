@@ -34,13 +34,13 @@ html.is-animating .live2d-card {
   transition-delay: 10ms;
 }
 
-#dotlottie-canvas {
+#lottie-container {
   transition: opacity 450ms ease, transform 400ms ease-in-out;
   opacity: 1;
   transform: translateY(0px);
 }
 
-html.is-rendering #dotlottie-canvas {
+html.is-rendering #lottie-container {
   transition-delay: 10ms;
   opacity: 0;
   transform: translateY(20px);
