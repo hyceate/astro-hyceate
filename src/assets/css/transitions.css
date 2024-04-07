@@ -43,7 +43,7 @@ html.is-animating .live2d-card {
 html.is-rendering #dotlottie-canvas {
   transition-delay: 10ms;
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(20px);
 }
 
 #hero h1 {
@@ -54,5 +54,5 @@ html.is-rendering #dotlottie-canvas {
 
 html.is-rendering #hero h1 {
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(20px);
 }

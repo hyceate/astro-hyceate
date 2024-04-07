@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from "svelte";
-	// import "@lottiefiles/lottie-player";
 	import { DotLottie } from "@lottiefiles/dotlottie-web";
-	// import landing from "@assets/animation/landing.json";
 	// @ts-ignore
 	import landing2 from "@assets/animation/Landing.lottie";
 
@@ -19,15 +17,6 @@
 			src: landing2, // or .json file
 		});
 	});
-	onDestroy(() => {
-		if (dotLottie) {
-			dotLottie = null;
-			const canvas = document.querySelector("#dotlottie-canvas");
-			if (canvas && canvas.parentNode) {
-				canvas.parentNode.removeChild(canvas);
-			}
-		}
-	});
 </script>
 
 <div
@@ -42,9 +31,6 @@
 			height="680"
 		></canvas>
 	</div>
-	<!-- <div class="max-w-[37rem]">
-		<lottie-player src={JSON.stringify(landing)} autoplay loop mode="normal" />
-	</div> -->
 	<h1
 		class="absolute font-medium bottom-[20dvh] text-9xl max-md:text-8xl max-md:bottom-[25dvh] max-sm:bottom-[30dvh] max-sm:text-[20dvw] text-[#db7471] text-stroke"
 	>
@@ -54,4 +40,20 @@
 </div>
 
 <style>
+	#dotlottie-canvas {
+		animation: 0.5s ease-in-out slideInFromBottom;
+	}
+	#hero h1 {
+		animation: 0.6s ease-in-out slideInFromBottom;
+	}
+	@keyframes slideInFromBottom {
+		from {
+			transform: translateY(50px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
 </style>
