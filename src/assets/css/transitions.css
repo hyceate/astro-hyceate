@@ -58,7 +58,7 @@ html.is-rendering #hero h1 {
 }
 
 #lottie-container {
-  animation: 0.8s cubic-bezier(.4, -0.01, .19, 1.87) slideInFromBottom;
+  animation: 0.8s cubic-bezier(.46, -0.33, .28, 1.59) slideInFromBottom;
 }
 
 #hero h1 {
@@ -67,7 +67,7 @@ html.is-rendering #hero h1 {
 
 @keyframes slideInFromBottom {
   from {
-    transform: translateY(100px);
+    transform: translateY(70px);
     opacity: 0;
   }
 
