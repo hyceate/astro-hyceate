@@ -44,7 +44,7 @@
 </script>
 
 <div id="contact" class="text-pretty">
-  <hgroup class="flex flex-col justify-center items-center mt-10 mb-10">
+  <hgroup class="flex flex-col justify-center items-center mb-10">
     <h1 class="text-5xl mb-9 font-medium text-center">Ways to Contact Me</h1>
     <p class="text-lg max-w-[50rem]">
       The best ways to contact me is through my social medias and the google
