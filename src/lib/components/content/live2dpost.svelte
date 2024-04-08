@@ -29,7 +29,7 @@
   >
 </div>
 <article
-  class="flex flex-wrap justify-center items-center w-full sm:max-w-[40rem] lg:max-w-[70rem] pb-16 after:content-[''] after:h-[5em]"
+  class="flex flex-wrap justify-center items-center w-full sm:max-w-[40rem] lg:max-w-[70rem] pb-28 after:content-[''] after:h-[20em]"
 >
   <section
     id="side"
