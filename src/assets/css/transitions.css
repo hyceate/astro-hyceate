@@ -6,6 +6,22 @@
   z-index: 9999;
 }
 
+body {
+  --swup-fade-theme-duration: .5s;
+}
+
+html.is-changing .transition-fade {
+  view-transition-name: main;
+}
+
+::view-transition-old(main) {
+  animation: fade 0.5s ease-in-out both;
+}
+
+::view-transition-new(main) {
+  animation: fade 0.5s ease-in-out both reverse;
+}
+
 html.is-animating #loader {
   opacity: 1;
 }
@@ -90,6 +106,6 @@ html.is-rendering #hero h1 {
 
   #lottie-container,
   #hero h1 {
-    animation: fade !important;
+    animation: 0.8s fade !important;
   }
 }

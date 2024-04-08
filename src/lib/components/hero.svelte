@@ -1,4 +1,5 @@
 <script lang="ts">
+	export const prerender = false;
 	import { onMount, onDestroy } from "svelte";
 	import { DotLottie } from "@lottiefiles/dotlottie-web";
 	// @ts-ignore
@@ -9,7 +10,7 @@
 		$isReady = true;
 		if (!dotLottie) {
 			dotLottie = new DotLottie({
-				autoplay: true,
+				autoplay: false,
 				loop: true,
 				useFrameInterpolation: false,
 				layout: {
@@ -19,9 +20,9 @@
 				canvas: document.querySelector("#dotlottie-canvas"),
 				src: landing2, // or .json file
 			});
-		} else {
-			dotLottie.stop();
-			dotLottie.play();
+			setTimeout(() => {
+				dotLottie.play();
+			}, 500);
 		}
 	});
 	onDestroy(() => {

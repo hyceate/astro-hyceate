@@ -13,12 +13,13 @@ import ArtList from "@components/content/artPosts.svelte";
       <h1 class="text-6xl mb-9 font-medium">art</h1>
     </hgroup>
     <ul id="artlist" class="flex flex-wrap max-w-6xl gap-2 justify-center">
-      <ArtList client:only="svelte" />
+      <ArtList client:load />
     </ul>
   </section>
 </Layout>
 <style>
-  #artlist {
+  #artlist,
+  h1 {
     animation: 0.9s ease-out slideInFromBottom;
   }
 

@@ -25,12 +25,13 @@ let posts = postsFetched?.posts;
       id="live2d-cards"
       class="flex flex-wrap gap-2 max-w-6xl justify-center md:justify-normal"
     >
-      <Live2dList category={category} posts={posts} client:only="svelte" />
+      <Live2dList category={category} posts={posts} client:load />
     </ul>
   </section>
 </Layout>
 <style>
-  #live2d-cards {
+  #live2d-cards,
+  h1 {
     animation: 0.9s ease-out slideInFromBottom;
   }
   @keyframes slideInFromBottom {

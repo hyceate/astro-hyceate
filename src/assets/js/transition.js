@@ -1,17 +1,15 @@
 import Swup from "swup";
-// import SwupDebugPlugin from '@swup/debug-plugin';
 import SwupFadeTheme from '@swup/fade-theme';
 import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
 import SwupProgressPlugin from '@swup/progress-plugin';
 import { isMenuOpen, isLoading } from "@lib/stores/stores";
 import { isReady } from "@lib/stores/stores";
-import { get } from "svelte/store";
 
 const swup = new Swup({
   linkToSelf: 'navigate',
   animationSelector: '[class*="transition-"]',
-  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({awaitAssets: true}),
+  plugins: [new SwupFadeTheme(),new SwupA11yPlugin(), new SwupProgressPlugin(), new SwupHeadPlugin({awaitAssets: false}),
   ],
   containers: ['#swup'],
   timeout: 5000
@@ -44,8 +42,7 @@ swup.hooks.on('page:view', () => {
     isReady.set(true);
       // Do something specific for the root URL "/"
   } else {
-      console.log("The current page URL is not /");
-      // Do something for URLs other than "/"
+    isReady.set(false);
   }
 });
 swup.hooks.before('content:replace', () => {
