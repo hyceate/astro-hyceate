@@ -50,7 +50,7 @@
   </div>
   <!-- logo -->
   <div class="flex flex-1 justify-center max-md:justify-start z-30">
-    <a href="/"
+    <a href="/" data-no-swup
       ><img
         src={logo.src}
         class="rounded-full border-2 border-darkBorder w-[50px] h-[50px] hover:scale-110 transition-all"
@@ -109,7 +109,7 @@
           }}
         >
           <li class="w-full">
-            <a href="/">Home</a>
+            <a href="/" data-no-swup>Home</a>
           </li>
           <li class="w-full">
             <a href="/projects/art">art</a>
@@ -143,7 +143,7 @@
     <ul
       class="navbar font-[Lexend] flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52 text-2xl"
     >
-      <li><a href="/">Home</a></li>
+      <li><a href="/" data-no-swup>Home</a></li>
       <!-- dropdown -->
       <li><a href="/projects">Projects</a></li>
       <li><a href="/contact">Contact</a></li>
