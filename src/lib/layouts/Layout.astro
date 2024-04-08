@@ -40,7 +40,7 @@ let pathname = Astro.url.pathname;
 		<Headroom offset={0} tolerance={5} duration="350ms" client:load>
 			<Header url={pathname} client:load />
 		</Headroom>
-		<main class="flex flex-col items-center w-full min-h-full flex-1">
+		<main class="flex flex-col items-center w-full h-full flex-1">
 			<article
 				id="swup"
 				class="transition-fade flex flex-1 flex-col w-dvw items-center px-5 lg:px-20 pt-5 pb-4 max-w-[81rem] mt-20 overflow-clip"
