@@ -24,9 +24,11 @@ let pathname = Astro.url.pathname;
 		<CommonHead title={title} description={description} />
 	</head>
 	<body class="flex flex-col items-center">
-		<Headroom offset={0} tolerance={5} duration="350ms" client:load>
-			<Header url={pathname} client:load />
-		</Headroom>
+		<div class="contents" data-swup-persist="header">
+			<Headroom offset={0} tolerance={5} duration="350ms" client:load>
+				<Header url={pathname} client:load />
+			</Headroom>
+		</div>
 		<main class="flex flex-col items-center w-full h-full flex-1">
 			<article
 				id="swup"
