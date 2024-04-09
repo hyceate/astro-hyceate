@@ -53,7 +53,6 @@ let pathname = Astro.url.pathname;
 			</div>
 		</aside>
 		<!-- end loader -->
-		<script src="@assets/js/transition.js"></script>
 		<style is:global>
 			.loader {
 				width: 50px;
@@ -83,6 +82,7 @@ let pathname = Astro.url.pathname;
 				background-repeat: no-repeat;
 				animation: spin-scale 4s infinite linear;
 			}
+
 			.loader::before,
 			.loader::after {
 				content: "";
@@ -91,20 +91,11 @@ let pathname = Astro.url.pathname;
 				border: inherit;
 				animation: inherit;
 			}
+
 			.loader::after {
 				animation-duration: 2s;
 			}
-			@keyframes spin-scale {
-				0% {
-					transform: rotate(0turn) scale(1);
-				}
-				50% {
-					transform: rotate(0.5turn) scale(0.8);
-				}
-				100% {
-					transform: rotate(1turn) scale(1);
-				}
-			}
 		</style>
+		<script src="@assets/js/transition.js"></script>
 	</body>
 </html>
