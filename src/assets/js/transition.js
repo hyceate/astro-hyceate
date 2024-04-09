@@ -63,5 +63,5 @@ document.addEventListener("astro:page-load", () => {
   setTimeout(()=>{
     document.querySelector("#loader").classList.add("hidden");
     document.querySelector("#loader-bg").classList.add("hidden");
-  }, 5000);
+  }, 4000);
 })
