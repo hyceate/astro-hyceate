@@ -53,15 +53,11 @@ document.addEventListener("astro:before-preparation", () => {
   isLoading.set(true);
   isMenuOpen.set(false);
   document.querySelector("#loader").classList.remove("hidden");
-  document.querySelector("#loader-bg").classList.remove("hidden");
 });
-document.addEventListener("astro:after-swap", () => {
+document.addEventListener("astro:after-preparation", () => {
   isMenuOpen.set(false);
-});
-document.addEventListener("astro:page-load", () => {
   isLoading.set(false);
   setTimeout(()=>{
     document.querySelector("#loader").classList.add("hidden");
-    document.querySelector("#loader-bg").classList.add("hidden");
-  }, 4000);
-})
+  }, 500);
+});
