@@ -27,7 +27,7 @@ let pathname = Astro.url.pathname;
 		<ViewTransitions />
 	</head>
 	<body class="flex flex-col items-center">
-		<div class="contents">
+		<div class="contents" transition:animate="none">
 			<Headroom offset={0} tolerance={10} duration="350ms" client:load>
 				<Header url={pathname} client:load />
 			</Headroom>
@@ -42,7 +42,8 @@ let pathname = Astro.url.pathname;
 		<!-- loader -->
 		<aside
 			id="loader"
-			class="hidden fixed z-[999] flex justify-center items-center w-full h-dvh"
+			transition:persist
+			class="invisible opacity-0 fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
 			<div class="loader z-20"></div>
 			<div
@@ -53,6 +54,11 @@ let pathname = Astro.url.pathname;
 		</aside>
 		<!-- end loader -->
 		<style is:global>
+			.show {
+				visibility: visible;
+				opacity: 1;
+				transition: 1s all ease;
+			}
 			.loader {
 				width: 50px;
 				height: 75px;
@@ -95,6 +101,7 @@ let pathname = Astro.url.pathname;
 				animation-duration: 2s;
 			}
 		</style>
+		<script is:inline></script>
 		<script src="@assets/js/transition.js"></script>
 	</body>
 </html>
