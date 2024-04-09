@@ -106,6 +106,20 @@
 </div>
 
 <style>
+  #contact hgroup,
+  #inquiry-form {
+    animation: 0.9s ease-out slideInFromBottom;
+  }
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
   #contact a {
     text-decoration-line: underline;
   }
