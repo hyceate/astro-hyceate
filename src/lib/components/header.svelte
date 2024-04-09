@@ -27,10 +27,8 @@
   });
   function openMenu() {
     $isMenuOpen = !$isMenuOpen;
-    console.log("Open Menu", $isMenuOpen);
   }
   function handleClickOutside(event: MouseEvent | TouchEvent) {
-    console.log("Clicked Outside: ", $isMenuOpen);
     $isMenuOpen = false;
   }
   onDestroy(() => {

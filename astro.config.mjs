@@ -12,7 +12,6 @@ import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
-import swup from '@swup/astro';
 import { vite as vidstack } from 'vidstack/plugins';
 import sanity from "@sanity/astro";
 // https://astro.build/config
@@ -28,7 +27,6 @@ export default defineConfig({
   //   apiVersion,
 }
   ),
-  swup({ globalInstance: true })
 ],
   output: "hybrid",
   adapter: cloudflare({

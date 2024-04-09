@@ -1,9 +1,11 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "@assets/css/app.css";
 import "@assets/css/transitions.css";
 import CommonHead from "@components/CommonHead.astro";
 import Header from "@components/header.svelte";
 import Headroom from "@components/headroom.svelte";
+
 interface Props {
 	title: string;
 	description: string;
@@ -22,9 +24,10 @@ let pathname = Astro.url.pathname;
 		<link rel="icon" type="image/svg+xml" href="/hy_roundBG.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<CommonHead title={title} description={description} />
+		<ViewTransitions />
 	</head>
 	<body class="flex flex-col items-center">
-		<div class="contents" data-swup-persist="header">
+		<div class="contents">
 			<Headroom offset={0} tolerance={5} duration="350ms" client:load>
 				<Header url={pathname} client:load />
 			</Headroom>
@@ -40,7 +43,7 @@ let pathname = Astro.url.pathname;
 		<!-- loader -->
 		<aside
 			id="loader"
-			class="hidden opacity-0 fixed z-[999] flex justify-center items-center w-full h-dvh"
+			class="hidden fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
 			<div class="loader z-20"></div>
 			<div
@@ -50,6 +53,7 @@ let pathname = Astro.url.pathname;
 			</div>
 		</aside>
 		<!-- end loader -->
+		<script src="@assets/js/transition.js"></script>
 		<style is:global>
 			.loader {
 				width: 50px;
@@ -102,6 +106,5 @@ let pathname = Astro.url.pathname;
 				}
 			}
 		</style>
-		<script src="@assets/js/transition.js"></script>
 	</body>
 </html>

@@ -1,4 +1,4 @@
-.swup-progress-bar {
+/* .swup-progress-bar {
   position: absolute;
   top: 0;
   height: 4px;
@@ -30,12 +30,7 @@ html.is-animating #loader-bg {
   opacity: .8;
 }
 
-.art-card,
-.live2d-card {
-  opacity: 1;
-  transition: transform 250ms;
-  transform: scale(1);
-}
+
 
 html.is-rendering .art-card,
 html.is-rendering .live2d-card {
@@ -48,6 +43,22 @@ html.is-animating .art-card,
 html.is-animating .live2d-card {
   transform: scale(0.95);
   transition-delay: 10ms;
+} */
+.art-card,
+.live2d-card,
+.project-cards {
+  animation: .6s scaleIn;
+  transition: transform 250ms;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.95);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 #lottie-container {

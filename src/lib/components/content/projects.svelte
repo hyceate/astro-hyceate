@@ -16,7 +16,7 @@
   }
 </script>
 
-<div class="flex flex-col justify-center w-full">
+<li class="project-cards flex flex-col justify-center w-full">
   <!-- {#each categories as category} -->
   <a
     class="flex mb-2 last:mb-0 min-h-[15rem] hover:text-rose-900 border-2 border-darkBorder rounded-lg w-full m-15 overflow-hidden relative transition-all"
@@ -45,4 +45,4 @@
     </h1>
   </a>
   <!-- {/each} -->
-</div>
+</li>

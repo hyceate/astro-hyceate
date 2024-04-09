@@ -25,11 +25,11 @@ categories = await sanityClient.fetch(categoryQuery);
       Projects consist of personal and commercial purposes.
     </h2>
   </hgroup>
-  <div class="flex flex-col justify-center w-full gap-1">
+  <ul class="flex flex-col justify-center w-full gap-1">
     {
       categories.length ? (
         categories.map((category) => (
-          <Projects category={category} client:load />
+          <Projects category={category} client:only="svelte" />
         ))
       ) : (
         <h1>"Error fetching"</h1>
@@ -44,5 +44,20 @@ categories = await sanityClient.fetch(categoryQuery);
         slot="image"
       />
     </Projects> -->
-  </div>
+  </ul>
 </Layout>
+<style>
+  hgroup {
+    animation: 0.9s ease-out slideInFromBottom;
+  }
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+</style>
