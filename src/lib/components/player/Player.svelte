@@ -2,7 +2,6 @@
 	import "vidstack/bundle";
 	export let data: any;
 	let video = data.youtubeEmbed;
-	// console.log("Video data: ", video);
 </script>
 
 <media-player
@@ -13,7 +12,8 @@
 	style="aspect-ratio: {video.aspectRatio};background-color: transparent;"
 	controls={video.controls}
 	loop
-	load="idle"
+	load="visible"
+	poster="https://i.ytimg.com/vi_webp/{video.video.id}/maxresdefault.webp"
 	posterLoad="visible"
 	muted
 >
