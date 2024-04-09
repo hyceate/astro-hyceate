@@ -48,9 +48,9 @@
   </div>
   <!-- logo -->
   <div class="flex flex-1 justify-center max-md:justify-start z-30">
-    <a href="/">
+    <a href="/" class="hover:scale-[1.05] transition-all">
       <svg
-        class="rounded-full border-2 border-darkBorder w-[50px] h-[50px] hover:scale-110 transition-all"
+        class="rounded-full border-2 border-darkBorder w-[50px] h-[50px]"
         xmlns="http://www.w3.org/2000/svg"
         xml:space="preserve"
         width="32"
