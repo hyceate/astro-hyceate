@@ -101,20 +101,25 @@
   on:click={closeModal}
   aria-hidden="true"
 >
-  <div id="modal-image" class="flex justify-center relative max-h-full">
+  <div
+    id="modal-image"
+    class="inline-flex justify-center relative max-h-full mx-auto center"
+  >
     <img
       class="p-3 {modalOpen ? 'isLoaded' : ''} max-w-full max-h-full"
       src={modalImageUrl}
       alt={modalAltText}
     />
-    <button
-      class="close major-button h-10 w-10 shadow z-[4000] {modalOpen
-        ? 'isLoaded'
-        : ''}"
-      title="Close"
-      on:click={closeModal}
-      aria-label="Close">&times;</button
-    >
+    <div class="relative">
+      <button
+        class="close major-button h-9 w-9 shadow z-[4000] {modalOpen
+          ? 'isLoaded'
+          : ''}"
+        title="Close"
+        on:click={closeModal}
+        aria-label="Close">&times;</button
+      >
+    </div>
   </div>
 </div>
 
@@ -148,7 +153,9 @@
     visibility: visible;
     z-index: 4000;
   }
-
+  #modal-image {
+    contain: layout;
+  }
   #modal-image img {
     will-change: transform;
     transform: scale(0.97);
@@ -163,7 +170,7 @@
     top: 0;
     right: 0;
     color: #d83c3c;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
     line-height: 0;

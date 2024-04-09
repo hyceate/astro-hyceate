@@ -11,8 +11,8 @@ document.addEventListener("astro:before-preparation", () => {
 });
 document.addEventListener("astro:after-preparation", () => {
   isMenuOpen.set(false);
-  isLoading.set(false);
   setTimeout(()=>{
+    isLoading.set(false);
     document.querySelector("#loader").classList.add("hidden");
-  }, 500);
+  }, 550);
 });

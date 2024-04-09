@@ -28,7 +28,7 @@ let pathname = Astro.url.pathname;
 	</head>
 	<body class="flex flex-col items-center">
 		<div class="contents">
-			<Headroom offset={0} tolerance={5} duration="350ms" client:load>
+			<Headroom offset={0} tolerance={10} duration="350ms" client:load>
 				<Header url={pathname} client:load />
 			</Headroom>
 		</div>
@@ -42,7 +42,6 @@ let pathname = Astro.url.pathname;
 		<!-- loader -->
 		<aside
 			id="loader"
-			transition:persist="loader"
 			class="hidden fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
 			<div class="loader z-20"></div>
