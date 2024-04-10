@@ -5,7 +5,8 @@ import "@assets/css/transitions.css";
 import CommonHead from "@components/CommonHead.astro";
 import Header from "@components/header.svelte";
 import Headroom from "@components/headroom.svelte";
-
+import { isReady } from "@lib/stores/stores";
+import { get } from "svelte/store";
 interface Props {
 	title: string;
 	description: string;
@@ -15,7 +16,6 @@ const { title, description } = Astro.props;
 let pathname = Astro.url.pathname;
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -34,7 +34,9 @@ let pathname = Astro.url.pathname;
 		</div>
 		<main class="flex flex-col items-center w-full h-full flex-1">
 			<article
+				id="doc"
 				class="flex flex-1 flex-col w-dvw items-center px-5 lg:px-20 pt-5 pb-4 max-w-[81rem] mt-24 overflow-clip"
+				style="display:none"
 			>
 				<slot />
 			</article>
@@ -101,7 +103,18 @@ let pathname = Astro.url.pathname;
 				animation-duration: 2s;
 			}
 		</style>
-		<script is:inline></script>
+		<script>
+			import { isReady } from "@lib/stores/stores";
+			isReady.subscribe((ready) => {
+				setTimeout(() => {
+					if (ready) {
+						document.getElementById("doc").style.display = "flex";
+					} else {
+						document.getElementById("doc").style.display = "none";
+					}
+				}, 100);
+			});
+		</script>
 		<script src="@assets/js/transition.js"></script>
 	</body>
 </html>

@@ -1,13 +1,15 @@
-import { isMenuOpen, isLoading } from "@lib/stores/stores";
-import { get } from "svelte/store";
+import { isMenuOpen, isLoading, isReady } from "@lib/stores/stores";
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
+    isReady.set(true);
     document.querySelector("#loader").classList.remove("show");
-  }, 550);
+  },500);
 });
+
 document.addEventListener("astro:before-preparation", () => {
   isLoading.set(true);
   isMenuOpen.set(false);
+  isReady.set(false);
   document.querySelector("#loader").classList.add("show");
 });
 document.addEventListener("astro:after-preparation", () => {
@@ -15,5 +17,6 @@ document.addEventListener("astro:after-preparation", () => {
   isLoading.set(false);
   setTimeout(()=>{
     document.querySelector("#loader").classList.remove("show");
-  }, 550);
+    isReady.set(true);
+  },500);
 });

@@ -9,7 +9,7 @@ import { isReady } from "@lib/stores/stores";
 	title="Hyceate's Portfolio"
 	description="Hyceate's Portfolio for Live2d related works and digital illustrations."
 >
-	{isReady ? <Hero client:load /> : null}
+	<Hero client:only="svelte" />
 </Layout>
 
 <style></style>

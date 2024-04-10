@@ -8,22 +8,24 @@
 	let dotLottie: DotLottie | null = null;
 	onMount(() => {
 		$isReady = true;
-		if (!dotLottie) {
-			dotLottie = new DotLottie({
-				autoplay: false,
-				loop: true,
-				useFrameInterpolation: false,
-				layout: {
-					fit: "contain",
-					align: [0.5, 0.5],
-				},
-				canvas: document.querySelector("#dotlottie-canvas"),
-				src: landing2, // or .json file
-			});
-			setTimeout(() => {
-				dotLottie.play();
-			}, 500);
-		}
+		setTimeout(() => {
+			if ($isReady) {
+				dotLottie = new DotLottie({
+					autoplay: false,
+					loop: true,
+					useFrameInterpolation: true,
+					layout: {
+						fit: "contain",
+						align: [0.5, 0.5],
+					},
+					canvas: document.querySelector("#dotlottie-canvas"),
+					src: landing2, // or .json file
+				});
+				setTimeout(() => {
+					dotLottie.play();
+				}, 300);
+			}
+		}, 500);
 	});
 	onDestroy(() => {
 		if (dotLottie) {
@@ -46,7 +48,7 @@
 		></canvas>
 	</div>
 	<h1
-		class="absolute font-medium bottom-[20dvh] text-9xl max-md:text-8xl max-md:bottom-[25dvh] max-sm:bottom-[30dvh] max-sm:text-[20dvw] text-[#db7471] text-stroke"
+		class="opacity-0 absolute font-medium bottom-[20dvh] text-9xl max-md:text-8xl max-md:bottom-[25dvh] max-sm:bottom-[30dvh] max-sm:text-[20dvw] text-[#db7471] text-stroke"
 	>
 		hyceate
 	</h1>
