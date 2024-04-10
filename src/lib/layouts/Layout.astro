@@ -28,7 +28,7 @@ let pathname = Astro.url.pathname;
 	</head>
 	<body class="flex flex-col items-center">
 		<div class="contents" transition:animate="none">
-			<Headroom offset={0} tolerance={10} duration="350ms" client:load>
+			<Headroom offset={10} tolerance={5} duration="350ms" client:load>
 				<Header url={pathname} client:load />
 			</Headroom>
 		</div>

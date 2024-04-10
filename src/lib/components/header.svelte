@@ -138,20 +138,12 @@
     >
       <div
         id="menu-content"
-        in:fly|global={{ y: -500, duration: 400 }}
-        out:fly|global={{ duration: 200 }}
         class="flex flex-col items-center px-5 lg:hidden fixed w-full h-dvh max-h-[50dvh] top-16 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
         use:clickOutside
         on:click_outside={handleClickOutside}
       >
         <ul
           class="font-[Lexend] navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 max-lg:w-52 text-5xl"
-          in:fly={{ y: -20, delay: 200, duration: 550, easing: cubicInOut }}
-          out:fade={{
-            delay: 0,
-            duration: 200,
-            easing: cubicOut,
-          }}
         >
           <li class="w-full">
             <a href="/">Home</a>
@@ -168,7 +160,7 @@
         </ul>
         <aside
           class="bottom-0 max-md:visible md:hidden lg:hidden"
-          in:fly={{ y: -20, delay: 500, duration: 550, easing: cubicInOut }}
+          in:fly={{ y: 20, delay: 500, duration: 550, easing: cubicInOut }}
           out:fade={{
             delay: 0,
             duration: 200,
@@ -205,6 +197,7 @@
     text-transform: lowercase;
     font-weight: 500;
     justify-content: center;
+    overflow: hidden;
   }
   .navbar li a {
     transition: all 0.5s ease-in-out;
@@ -225,6 +218,20 @@
     .navbar li:not(:last-child)::after {
       content: "";
       margin: 0;
+    }
+  }
+  #menu-content .navbar li a {
+    animation: 650ms cubic-bezier(0.49, 0.02, 0.33, 1.31) 300ms slide-up
+      forwards;
+    transform: translateY(100%);
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
