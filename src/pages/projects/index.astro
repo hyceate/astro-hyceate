@@ -35,29 +35,6 @@ categories = await sanityClient.fetch(categoryQuery);
         <h1>"Error fetching"</h1>
       )
     }
-    <!-- <Projects>
-      <Image
-        class="flex flex-1 w-full h-full min-h-[30rem] rounded-lg object-cover object-center"
-        loading="lazy"
-        src={urlFor(category.mainImage).width(1280).height(720).url()}
-        alt={category?.mainImage.alt}
-        slot="image"
-      />
-    </Projects> -->
   </ul>
 </Layout>
-<style>
-  hgroup {
-    animation: 0.9s ease-out slideInFromBottom;
-  }
-  @keyframes slideInFromBottom {
-    from {
-      transform: translateY(20px) scale(0.95);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-  }
-</style>
+<style></style>

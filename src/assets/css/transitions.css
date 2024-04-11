@@ -1,3 +1,19 @@
+hgroup {
+  animation: 0.5s ease-out slideInHeaders;
+}
+
+@keyframes slideInHeaders {
+  from {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
 .art-card,
 .live2d-card,
 .project-cards {
@@ -15,18 +31,12 @@
   }
 }
 
-#hero h1 {
-  transition: transform 300ms, opacity 250ms ease;
-  opacity: 1;
-  transform: translateY(0px);
-}
-
 #lottie-container {
-  animation: 0.9s cubic-bezier(.46, -0.33, .28, 1.59) 250ms slideInFromBottom forwards;
+  animation: 900ms cubic-bezier(.46, -0.33, .28, 1.59) 250ms slideInFromBottom forwards;
 }
 
 #hero h1 {
-  animation: 1s cubic-bezier(.61, -0.48, .19, 1.87) slideInFromBottom forwards;
+  animation: 900ms cubic-bezier(.61, -0.48, .19, 1.87) slideInFromBottom forwards;
 }
 
 @keyframes slideInFromBottom {

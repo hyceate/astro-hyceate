@@ -3,9 +3,6 @@
   import { fade, fly, crossfade } from "svelte/transition";
   import { cubicOut, cubicInOut } from "svelte/easing";
   import { clickOutside } from "@lib/actions/clickOutside";
-  // import menuIcon from "@assets/svg/menu.svg";
-  // import close from "@assets/svg/close.svg";
-  // import logo from "@assets/svg/hy_roundBG.svg";
   import SocialLinks from "@components/social-links.svelte";
   import { isMenuOpen, isLoading } from "@lib/stores/stores";
 
@@ -138,7 +135,9 @@
     >
       <div
         id="menu-content"
-        class="flex flex-col items-center px-5 lg:hidden fixed w-full h-dvh max-h-[50dvh] top-16 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
+        in:fly={{ y: -100, duration: 400, opacity: 0 }}
+        out:fly={{ y: 0, duration: 400, opacity: 0 }}
+        class="flex flex-col items-center px-5 lg:hidden fixed w-full h-dvh max-h-[60dvh] top-16 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
         use:clickOutside
         on:click_outside={handleClickOutside}
       >
@@ -221,8 +220,7 @@
     }
   }
   #menu-content .navbar li a {
-    animation: 650ms cubic-bezier(0.49, 0.02, 0.33, 1.31) 300ms slide-up
-      forwards;
+    animation: 650ms cubic-bezier(0.49, 0.02, 0.33, 1.1) 250ms slide-up forwards;
     transform: translateY(100%);
   }
   @keyframes slide-up {
