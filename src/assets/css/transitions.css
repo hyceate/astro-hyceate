@@ -15,12 +15,6 @@
   }
 }
 
-#lottie-container {
-  transition: opacity 450ms ease, transform 400ms ease-in-out;
-  opacity: 1;
-  transform: translateY(0px);
-}
-
 #hero h1 {
   transition: transform 300ms, opacity 250ms ease;
   opacity: 1;
@@ -28,11 +22,11 @@
 }
 
 #lottie-container {
-  animation: 0.9s cubic-bezier(.46, -0.33, .28, 1.59) 200ms slideInFromBottom;
+  animation: 0.9s cubic-bezier(.46, -0.33, .28, 1.59) 250ms slideInFromBottom forwards;
 }
 
 #hero h1 {
-  animation: 1s cubic-bezier(.61, -0.48, .19, 1.87) slideInFromBottom;
+  animation: 1s cubic-bezier(.61, -0.48, .19, 1.87) slideInFromBottom forwards;
 }
 
 @keyframes slideInFromBottom {
