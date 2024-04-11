@@ -64,6 +64,10 @@ hgroup {
 
   #lottie-container,
   #hero h1 {
-    animation: 0.8s fade forwards !important;
+    animation: 0.9s fade forwards !important;
+  }
+
+  #lottie-container {
+    animation-delay: 250ms;
   }
 }
