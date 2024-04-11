@@ -10,19 +10,27 @@ export default {
         'primary': '#f3edeb',
         'darkBorder': '#5f4444',
       },
+      keyframes: {
+        spin:{
+            '0%, 100%':{ transform: 'rotate(0turn)' },
+            '50%':{ transform: 'rotate(0.5turn)' },
+            '100%':{ transform: 'rotate(1turn)' },
+          }
+        },
+      },
     },
-  },
-  plugins: [
-    tailwindcssAnimate,
-    vidstackTailwind({
-      selector: '.media-player',
-      prefix: 'media',
-      webComponents: true,
-    }),
-    tailwindTypography,
-    customVariants,
-  ],
-}
+    plugins: [
+      tailwindcssAnimate,
+      vidstackTailwind({
+        selector: '.media-player',
+        prefix: 'media',
+        webComponents: true,
+      }),
+      tailwindTypography,
+      customVariants,
+    ],
+  }
+  
 
 function customVariants({ addVariant, matchVariant }) {
   // Strict version of `.group` to help with nesting.

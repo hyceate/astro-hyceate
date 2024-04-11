@@ -65,7 +65,7 @@
 
 {#each posts as post}
   <li
-    class="art-card flex-[1_1_20%] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
+    class="art-card flex-[1_1_25%] max-w-[40rem] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
   >
     <!-- <a href="/projects/{category}/{post.slug}"> -->
     <a

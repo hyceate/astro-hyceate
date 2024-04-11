@@ -21,10 +21,7 @@ let posts = postsFetched?.posts;
         </hgroup>
       )
     }
-    <ul
-      id="live2d-cards"
-      class="flex flex-wrap gap-2 max-w-6xl justify-center max-md:justify-normal"
-    >
+    <ul id="live2d-cards" class="flex flex-wrap gap-2 max-w-6xl justify-normal">
       <Live2dList category={category} posts={posts} client:load />
     </ul>
   </section>

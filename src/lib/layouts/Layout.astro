@@ -47,7 +47,19 @@ let pathname = Astro.url.pathname;
 			transition:persist
 			class="invisible opacity-0 show fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
-			<div class="loader z-20"></div>
+			<div class="loader-wrapper z-20 animate-[spin_4s_linear_infinite]">
+				<div class="loader"></div>
+			</div>
+			<div
+				class="loader-wrapper z-20 animate-[spin_2s_linear_infinite] transform rotate-90"
+			>
+				<div class="loader"></div>
+			</div>
+			<div
+				class="loader-wrapper z-20 animate-[spin_1s_linear_infinite] transform rotate-90"
+			>
+				<div class="loader"></div>
+			</div>
 			<div
 				id="loader-bg"
 				class="fixed overflow-hidden w-full h-dvh left-0 -top-0 bg-primary/80 backdrop-blur-sm z-[10]"
@@ -61,58 +73,43 @@ let pathname = Astro.url.pathname;
 				opacity: 1;
 				transition: 1s all ease;
 			}
-
-			.loader {
-				width: 50px;
-				height: 75px;
-				display: grid;
-				color: #d63f3f;
-				background:
-					linear-gradient(currentColor 0 0) top/100% 2px,
-					radial-gradient(
-							farthest-side at top,
-							#ff929200 calc(100% - 2px),
-							currentColor calc(100% - 1px),
-							#f7595900
-						)
-						top,
-					linear-gradient(currentColor 0 0) bottom/100% 2px,
-					radial-gradient(
-							farthest-side at bottom,
-							#ff4f4f00 calc(100% - 2px),
-							currentColor calc(100% - 1px),
-							#9e1a1a00
-						)
-						bottom;
-				background-size:
-					100% 1px,
-					100% 50%;
-				background-repeat: no-repeat;
-				animation: spin 4s infinite linear;
+			.loader-wrapper {
+				width: 48px;
+				height: 136px;
+				position: absolute;
 			}
-			.loader::before,
+			.loader {
+				width: 45px;
+				height: 48px;
+				margin: 20px auto;
+				box-sizing: border-box;
+				border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+				border: 1px solid #d63f3f;
+				position: relative;
+			}
 			.loader::after {
 				content: "";
-				grid-area: 1/1;
-				background: inherit;
+				box-sizing: border-box;
+				width: inherit;
+				height: inherit;
+				left: 0;
+				bottom: 0;
+				position: absolute;
+				border-radius: inherit;
+				box-sizing: border-box;
+			}
+			.loader::before {
+				content: "";
+				box-sizing: border-box;
+				width: inherit;
+				height: inherit;
+				left: 0;
+				top: 105%;
+				position: absolute;
+				transform: rotate(180deg);
+				border-radius: inherit;
 				border: inherit;
-				animation: inherit;
-			}
-			.loader::after {
-				animation-duration: 2s;
-			}
-			@keyframes spin {
-				0% {
-					transform: rotate(0turn);
-				}
-
-				50% {
-					transform: rotate(0.5turn);
-				}
-
-				100% {
-					transform: rotate(1turn);
-				}
+				box-sizing: border-box;
 			}
 		</style>
 		<script>

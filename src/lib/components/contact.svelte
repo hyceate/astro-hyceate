@@ -47,7 +47,7 @@
   <hgroup class="flex flex-col justify-center items-center mb-10">
     <h1 class="text-5xl mb-9 font-medium text-center">Ways to Contact Me</h1>
     <p class="text-lg max-w-[50rem]">
-      The best ways to contact me is through my social medias and the google
+      The best ways to contact me are through my social medias and the google
       form right below. This is the direct link to the same <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSe041kNaiiKghNRWl1fY-l4Od3RFemdjmPf0UQE8uBlzz5u0Q/viewform"
       >
