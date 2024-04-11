@@ -108,7 +108,7 @@
 <style>
   #contact hgroup,
   #inquiry-form {
-    animation: 0.9s ease-out slideInFromBottom;
+    animation: 0.6s ease-out slideInFromBottom;
   }
   @keyframes slideInFromBottom {
     from {
