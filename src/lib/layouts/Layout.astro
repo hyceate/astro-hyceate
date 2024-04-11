@@ -45,18 +45,18 @@ let pathname = Astro.url.pathname;
 		<aside
 			id="loader"
 			transition:persist
-			class="invisible opacity-0 show fixed z-[999] flex justify-center items-center w-full h-dvh"
+			class="fixed z-[999] flex justify-center items-center w-full h-dvh"
 		>
 			<div class="loader-wrapper z-20 animate-[spin_4s_linear_infinite]">
 				<div class="loader"></div>
 			</div>
 			<div
-				class="loader-wrapper z-20 animate-[spin_2s_linear_infinite] transform rotate-90"
+				class="loader-wrapper z-20 transform animate-[spin_2s_linear_infinite]"
 			>
 				<div class="loader"></div>
 			</div>
 			<div
-				class="loader-wrapper z-20 animate-[spin_1s_linear_infinite] transform rotate-90"
+				class="loader-wrapper z-20 transform animate-[spin_1.5s_linear_infinite]"
 			>
 				<div class="loader"></div>
 			</div>
@@ -75,7 +75,7 @@ let pathname = Astro.url.pathname;
 			}
 			.loader-wrapper {
 				width: 48px;
-				height: 136px;
+				height: 137px;
 				position: absolute;
 			}
 			.loader {
@@ -104,7 +104,7 @@ let pathname = Astro.url.pathname;
 				width: inherit;
 				height: inherit;
 				left: 0;
-				top: 105%;
+				top: 104%;
 				position: absolute;
 				transform: rotate(180deg);
 				border-radius: inherit;
