@@ -47,13 +47,18 @@
   <div class="flex flex-1 justify-center max-md:justify-start z-30">
     <a href="/" class="hover:scale-[1.05] transition-all">
       <svg
+        role="img"
         class="rounded-full border-2 border-darkBorder w-[50px] h-[50px]"
         xmlns="http://www.w3.org/2000/svg"
         xml:space="preserve"
         width="32"
         height="32"
         viewBox="0 0 8.467 8.467"
-        ><path
+        aria-labelledby="logo logo_desc"
+      >
+        <title id="logo">logo</title>
+        <desc id="logo_desc">round logo made of letters 'h' and 'y'</desc>
+        <path
           d="M-.016 0h8.492v8.476H-.016z"
           style="fill:#ffa694;stroke-width:.264583;fill-opacity:1"
         /><g data-name="Layer 3"
