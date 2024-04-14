@@ -140,8 +140,8 @@
     >
       <div
         id="menu-content"
-        in:fly={{ y: -100, duration: 400, opacity: 0 }}
-        out:fly={{ y: 0, duration: 400, opacity: 0 }}
+        in:fly={{ y: -100, duration: 500, opacity: 0 }}
+        out:fade={{ duration: 100 }}
         class="flex flex-col items-center px-5 lg:hidden fixed w-full h-dvh max-h-[60dvh] top-16 pb-[2rem] overflow-x-clip overflow-y-scroll bg-primary border-b-2 border-rose-200 shadow shadow-rose-200"
         use:clickOutside
         on:click_outside={handleClickOutside}

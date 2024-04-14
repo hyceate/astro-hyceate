@@ -27,7 +27,7 @@ let pathname = Astro.url.pathname;
 		<ViewTransitions />
 	</head>
 	<body class="flex flex-col items-center">
-		<div class="contents" transition:animate="none">
+		<div class="contents" transition:persist="header">
 			<Headroom offset={10} tolerance={5} duration="350ms" client:load>
 				<Header url={pathname} client:load />
 			</Headroom>
