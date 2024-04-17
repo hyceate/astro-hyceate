@@ -122,4 +122,21 @@
   #info li {
     margin-bottom: 0.3rem;
   }
+
+  #back-button,
+  #side,
+  #side-info,
+  p {
+    animation: slideInFromBottom 0.5s ease;
+  }
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
 </style>
