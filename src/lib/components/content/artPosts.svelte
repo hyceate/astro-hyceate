@@ -38,7 +38,9 @@
     modalOpen = false;
     modalImageUrl = null;
     modalAltText = null;
-    modalImgLoading = true;
+    setTimeout(() => {
+      modalImgLoading = true;
+    }, 100);
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   function handleKeyDown(event: KeyboardEvent) {
@@ -100,9 +102,6 @@
           alt={post.mainImage.alt}
           on:load={setImageLoad}
         />
-        {#if imgLoading}
-          <div class="imgLoader"></div>
-        {/if}
       </figure>
     </a>
   </li>
@@ -123,12 +122,11 @@
       alt={modalAltText}
       on:load={setModalImageLoad}
     />
-    {#if modalImgLoading}
-      <div class="imgLoader"></div>
-    {/if}
+    <div class="imgLoader {!modalImgLoading ? 'hidden' : 'isLoaded'}"></div>
     <div class="relative">
       <button
-        class="close major-button h-9 w-9 shadow z-[4000] {!modalImgLoading
+        class="close major-button h-9 w-9 shadow z-[4000] {modalOpen &&
+        !modalImgLoading
           ? 'isLoaded'
           : ''}"
         title="Close"
@@ -164,12 +162,6 @@
       z-index 0.5s;
   }
 
-  .isLoaded {
-    pointer-events: auto;
-    opacity: 1;
-    visibility: visible;
-    z-index: 4000;
-  }
   #modal-image {
     contain: layout;
   }
@@ -194,10 +186,6 @@
     visibility: hidden;
     transition: opacity 0.5s ease;
   }
-  .close.isLoaded {
-    visibility: visible;
-    opacity: 1;
-  }
   .close:hover,
   .close:focus {
     color: black;
@@ -205,13 +193,18 @@
     cursor: pointer;
   }
   .imgLoader {
+    opacity: 0;
+    visibility: hidden;
     width: 70px;
     height: 35px;
     margin-inline: auto;
-    position: relative;
+    position: absolute;
     overflow: hidden;
+    transition: opacity 0.5s ease;
   }
-
+  .imgLoader.isLoaded {
+    transition: opacity 0.5s ease 0.9s;
+  }
   .imgLoader:before {
     content: "";
     width: 70px;
@@ -226,7 +219,12 @@
     animation: rotate 3s ease-in-out infinite;
     transform: rotate(-200deg);
   }
-
+  .isLoaded {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    z-index: 4000;
+  }
   @keyframes rotate {
     0% {
       border-width: 10px;
