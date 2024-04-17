@@ -10,7 +10,14 @@
   let modalImageUrl: string = "";
   let modalAltText: string = "";
   let modalOpen = false;
-
+  let imgLoading = true;
+  let modalImgLoading = true;
+  function setImageLoad() {
+    imgLoading = false;
+  }
+  function setModalImageLoad() {
+    modalImgLoading = false;
+  }
   function openModal(imageUrl: string, altText: string, slug: string) {
     modalImageUrl = imageUrl;
     modalAltText = altText;
@@ -31,6 +38,7 @@
     modalOpen = false;
     modalImageUrl = null;
     modalAltText = null;
+    modalImgLoading = true;
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   function handleKeyDown(event: KeyboardEvent) {
@@ -79,10 +87,10 @@
         )}
     >
       <figure
-        class="min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden"
+        class="flex items-center min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden min-h-[10rem]"
       >
         <Image
-          class="h-full w-full object-fill object-center "
+          class="h-full w-full object-fill object-center min-h-[10rem]"
           src={urlFor(post.mainImage).width(800).height(720).url()}
           aspectRatio={16 / 9}
           width={1280}
@@ -90,7 +98,11 @@
           decoding="async"
           background="auto"
           alt={post.mainImage.alt}
+          on:load={setImageLoad}
         />
+        {#if imgLoading}
+          <div class="imgLoader"></div>
+        {/if}
       </figure>
     </a>
   </li>
@@ -109,10 +121,14 @@
       class="p-3 {modalOpen ? 'isLoaded' : ''} max-w-full max-h-full"
       src={modalImageUrl}
       alt={modalAltText}
+      on:load={setModalImageLoad}
     />
+    {#if modalImgLoading}
+      <div class="imgLoader"></div>
+    {/if}
     <div class="relative">
       <button
-        class="close major-button h-9 w-9 shadow z-[4000] {modalOpen
+        class="close major-button h-9 w-9 shadow z-[4000] {!modalImgLoading
           ? 'isLoaded'
           : ''}"
         title="Close"
@@ -165,7 +181,6 @@
   #modal-image img.isLoaded {
     transform: scale(1);
   }
-  /* Style for the close button */
   .close {
     position: absolute;
     top: 0;
@@ -188,5 +203,50 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+  .imgLoader {
+    width: 70px;
+    height: 35px;
+    margin-inline: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .imgLoader:before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 5px solid #0000;
+    border-color: #db7471 #db7471 #0000 #0000;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotate 3s ease-in-out infinite;
+    transform: rotate(-200deg);
+  }
+
+  @keyframes rotate {
+    0% {
+      border-width: 10px;
+    }
+
+    25% {
+      border-width: 3px;
+    }
+
+    50% {
+      transform: rotate(115deg);
+      border-width: 10px;
+    }
+
+    75% {
+      border-width: 3px;
+    }
+
+    100% {
+      border-width: 10px;
+    }
   }
 </style>
