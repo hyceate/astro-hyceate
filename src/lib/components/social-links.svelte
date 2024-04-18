@@ -72,13 +72,14 @@
 <style>
 	#social-links li {
 		padding: 0.2rem;
-		border-radius: 10px;
-		margin-inline-end: 0.4em;
+		margin-inline-end: 6px;
 		margin-bottom: 0.5em;
+		width: 40px;
+		height: 40px;
 	}
-	#social-links li a svg,
-	#social-links li a img {
-		width: 1.85rem;
-		height: 1.85rem;
+	#social-links svg,
+	#social-links img {
+		width: 100%;
+		height: 100%;
 	}
 </style>
