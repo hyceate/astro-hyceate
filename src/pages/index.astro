@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/hero.svelte";
-import { isReady } from "@lib/stores/stores";
 ---
 
 <!-- INDEX HOMEPAGE -->
@@ -9,7 +8,7 @@ import { isReady } from "@lib/stores/stores";
 	title="Hyceate's Portfolio"
 	description="Hyceate's Portfolio for Live2d related works and digital illustrations."
 >
-	<Hero client:only="svelte" />
+	<Hero client:load />
 </Layout>
 
 <style></style>
