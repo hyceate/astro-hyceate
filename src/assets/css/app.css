@@ -71,11 +71,13 @@ a {
 
 @layer utilities {
   .major-button {
-    box-shadow: 0px 5px 0px #5f4444;
+    position: relative;
     background-color: #fcb6a9;
     border-color: #5f4444;
     border-width: 2px;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
+    border-style: solid;
+    box-shadow: 0px 5px 0px #5f4444;
     cursor: pointer;
   }
 
