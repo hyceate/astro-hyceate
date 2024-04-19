@@ -28,7 +28,6 @@ body {
   font-optical-sizing: auto;
   font-size: 100%;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   background: linear-gradient(to bottom,
       transparent,
       var(--background-end-rgb)) var(--background-start-rgb);
@@ -37,7 +36,6 @@ body {
 body {
   flex-grow: 1;
   color: var(--foreground-rgb);
-
 }
 
 a {
@@ -79,18 +77,6 @@ a {
     border-style: solid;
     box-shadow: 0px 5px 0px #5f4444;
     cursor: pointer;
-  }
-
-  .major-button::before {
-    content: "";
-    position: absolute;
-    left: -1.9px;
-    right: 0;
-    bottom: 0;
-    border: 20px solid transparent;
-    border-radius: 12px;
-    z-index: -1;
-    box-shadow: 0px 5px 0px #5f4444;
   }
 
   .major-button:hover {
