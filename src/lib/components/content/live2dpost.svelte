@@ -60,8 +60,8 @@
     </h1>
     <ul id="info" class="mb-5">
       {#if post.vSocial}
-        <li class="mt-2 !mb-5">
-          <a href={post.vSocial} class="after:content-[''] after:mx-1"
+        <li class="">
+          <a href={post.vSocial} class=""
             ><button class="major-button px-3 py-1" tabindex="-1"
               ><img class="w-8 h-5" alt="link button" src={link.src} /></button
             ></a
@@ -81,10 +81,10 @@
       {/if}
 
       {#if post.vart}
-        <li class="">
+        <li>
           <div class="uppercase font-bold">Artist | {post.vart}</div>
           {#if post.vartLink}
-            <a href={post.vartLink} class="after:content-[''] after:mx-1"
+            <a href={post.vartLink} class=""
               ><button class="major-button px-3 py-1" tabindex="-1"
                 ><img
                   class="w-5 h-5"
@@ -98,11 +98,11 @@
       {/if}
 
       {#if post.vrig}
-        <li class="">
+        <li>
           <div class="uppercase font-bold">Rig | {post.vrig}</div>
           {#if post.vrigLink}
             <li>
-              <a href={post.vrigLink} class="after:content-[''] after:mx-1"
+              <a href={post.vrigLink} class=""
                 ><button class="major-button px-3 py-1" tabindex="-1"
                   ><img class="w-5 h-5" alt="link button" src={link.src} />
                 </button></a
@@ -119,10 +119,15 @@
 </article>
 
 <style>
-  #info li {
-    margin-bottom: 0.3rem;
+  #info {
+    margin-block: 0.5rem;
   }
-
+  #info li:first-child {
+    margin-bottom: 1.3rem;
+  }
+  #info li {
+    margin-bottom: 1rem;
+  }
   #back-button,
   #side,
   #side-info,
