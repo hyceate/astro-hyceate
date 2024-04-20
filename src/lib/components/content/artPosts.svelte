@@ -128,7 +128,9 @@
       alt={modalAltText}
       on:load={setModalImageLoad}
     />
-    <div class="imgLoader {!modalImgLoading ? 'hidden' : 'isLoaded'}"></div>
+    <div
+      class="imgLoader {!modalImgLoading && modalOpen ? 'hidden' : 'isLoaded'}"
+    ></div>
     <div class="relative">
       <button
         class="close major-button h-9 w-9 shadow z-[4000] {modalOpen &&
