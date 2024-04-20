@@ -10,10 +10,10 @@
   let modalImageUrl: string = "";
   let modalAltText: string = "";
   let modalOpen = false;
-  let imgLoading = true;
   let modalImgLoading = true;
-  function setImageLoad() {
-    imgLoading = false;
+  let imgReady = false;
+  function setImgReady() {
+    imgReady = true;
   }
   function setModalImageLoad() {
     modalImgLoading = false;
@@ -64,6 +64,11 @@
         );
       }
     }
+    if (!imgReady) {
+      document.getElementById("artloader").style.display = "none";
+    } else {
+      document.getElementById("artloader").style.display = "block";
+    }
     window.addEventListener("keydown", handleKeyDown);
   });
   onDestroy(() => {
@@ -73,39 +78,40 @@
   });
 </script>
 
-{#each posts as post}
-  <li
-    class="art-card flex-[1_1_25%] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
-  >
-    <!-- <a href="/projects/{category}/{post.slug}"> -->
-    <a
-      href="#{post.slug}"
-      data-no-swup
-      on:click|preventDefault={() =>
-        openModal(
-          urlFor(post.mainImage).width(800).url(),
-          post.mainImage.alt,
-          post.slug,
-        )}
+<div id="artloader" class="artloader"></div>
+<ul id="artlist" class="flex flex-wrap max-w-6xl gap-2 justify-normal">
+  {#each posts as post}
+    <li
+      class="art-card flex-[1_1_25%] self-start w-full rounded-lg transition-all hover:scale-[102%] transition-transform ease motion-reduce:transition-none motion-reduce:hover:transform-none"
     >
-      <figure
-        class="flex items-center min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden min-h-[10rem]"
+      <a
+        href="#{post.slug}"
+        data-no-swup
+        on:click|preventDefault={() =>
+          openModal(
+            urlFor(post.mainImage).width(800).url(),
+            post.mainImage.alt,
+            post.slug,
+          )}
       >
-        <Image
-          class="h-full w-full object-fill object-center min-h-[10rem]"
-          src={urlFor(post.mainImage).width(800).height(720).url()}
-          aspectRatio={16 / 9}
-          width={1280}
-          priority={true}
-          decoding="async"
-          background="auto"
-          alt={post.mainImage.alt}
-          on:load={setImageLoad}
-        />
-      </figure>
-    </a>
-  </li>
-{/each}
+        <figure
+          class="flex items-center min-w-[15rem] max-h-[25rem] h-full w-full border-2 border-darkBorder rounded-md overflow-hidden min-h-[10rem]"
+        >
+          <Image
+            class="h-full w-full object-fill object-center min-h-[10rem]"
+            src={urlFor(post.mainImage).width(800).height(720).url()}
+            aspectRatio={16 / 9}
+            width={1280}
+            priority={true}
+            background="auto"
+            alt={post.mainImage.alt}
+            on:load={setImgReady}
+          />
+        </figure>
+      </a>
+    </li>
+  {/each}
+</ul>
 <!-- MODAL -->
 <div
   class="modal {modalOpen ? 'isLoaded' : ''}"
@@ -245,6 +251,75 @@
 
     100% {
       border-width: 10px;
+    }
+  }
+  .artloader {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .artloader:before {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg) translate(30%, 40%);
+    background: #db7471;
+    box-shadow: 32px -66px 0 5px #e74e49;
+    animation: slide 2s infinite ease-in-out alternate;
+  }
+
+  .artloader:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100%;
+    max-width: 20%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: #e74e49;
+    transform: rotate(0deg);
+    transform-origin: 35px 2045px;
+    animation: rotate 2s infinite ease-in-out;
+  }
+
+  @keyframes slide {
+    0%,
+    100% {
+      bottom: -455px;
+    }
+
+    25%,
+    75% {
+      bottom: -12px;
+    }
+
+    20%,
+    80% {
+      bottom: 12px;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(-15deg);
+    }
+
+    25%,
+    75% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(25deg);
     }
   }
 </style>

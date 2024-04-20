@@ -7,14 +7,23 @@ import ArtList from "@components/content/artPosts.svelte";
 // console.log("posts fetched", posts);
 ---
 
+<!-- <script>
+  import { isReady } from "@lib/stores/stores";
+  isReady.subscribe((ready) => {
+    if (ready) {
+      document.getElementById("artloader").style.display = "none";
+    } else {
+      document.getElementById("artloader").style.display = "block";
+    }
+  });
+</script> -->
 <Layout title="Hyceate's Arts Page" description="Hyceate's list of artworks."
   ><section class="inline-flex flex-col justify-center items-center">
     <hgroup class="flex justify-center flex-col items-center mb-10">
       <h1 class="text-6xl mb-9 font-medium">art</h1>
     </hgroup>
-    <ul id="artlist" class="flex flex-wrap max-w-6xl gap-2 justify-normal">
-      <ArtList client:load />
-    </ul>
+
+    <ArtList client:load />
   </section>
 </Layout>
 <style></style>
