@@ -12,35 +12,35 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/cloudflare": "^9.2.1",
-    "@astrojs/mdx": "^2.2.4",
-    "@astrojs/svelte": "^5.3.0",
+    "@astrojs/mdx": "^2.3.1",
+    "@astrojs/svelte": "^5.4.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@portabletext/svelte": "^2.1.10",
-    "@portabletext/types": "^2.0.12",
+    "@portabletext/svelte": "^2.1.11",
+    "@portabletext/types": "^2.0.13",
     "@sanity/astro": "^3.0.0",
-    "@sanity/client": "^6.15.11",
+    "@sanity/client": "^6.15.19",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/types": "^3.37.1",
+    "@sanity/types": "^3.38.0",
     "@tailwindcss/typography": "^0.5.12",
     "@unpic/svelte": "^0.0.51",
-    "astro": "^4.5.17",
+    "astro": "^4.6.3",
     "astro-font": "^0.0.78",
     "nanostores": "^0.10.3",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.37.1",
-    "svelte": "^4.2.12",
+    "sanity": "^3.38.0",
+    "svelte": "^4.2.15",
     "swup": "^4.6.1",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "tippy.js": "^6.3.7",
-    "typescript": "^5.4.4",
-    "vidstack": "^1.11.17"
+    "typescript": "^5.4.5",
+    "vidstack": "^1.11.18"
   },
   "devDependencies": {
     "@lottiefiles/dotlottie-web": "^0.18.1",
     "@lottiefiles/lottie-player": "^2.0.4",
-    "vite": "^5.2.8"
+    "vite": "^5.2.10"
   }
 }
