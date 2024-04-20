@@ -146,7 +146,7 @@
         on:click_outside={handleClickOutside}
       >
         <ul
-          class="font-[Lexend] navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 max-lg:w-52 text-5xl"
+          class="font-Lexend navbar flex flex-1 justify-center items-center lg:hidden max-lg:flex-col py-5 max-lg:w-52 text-5xl"
         >
           <li class="w-full">
             <a href="/">Home</a>
@@ -181,7 +181,7 @@
     class="flex flex-1 justify-end items-center lowercase font-medium max-lg:hidden"
   >
     <ul
-      class="navbar font-[Lexend] flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52 text-2xl"
+      class="navbar font-Lexend flex max-lg:hidden max-lg:flex-col align-center items-center py-5 z-[20] max-lg:w-52 text-2xl"
     >
       <li><a href="/">Home</a></li>
       <!-- dropdown -->

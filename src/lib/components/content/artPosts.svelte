@@ -38,9 +38,7 @@
     modalOpen = false;
     modalImageUrl = null;
     modalAltText = null;
-    setTimeout(() => {
-      modalImgLoading = true;
-    }, 100);
+    modalImgLoading = true;
     history.pushState({ showModal: false }, "", `/projects/${category}`);
   }
   function handleKeyDown(event: KeyboardEvent) {
@@ -129,7 +127,7 @@
       on:load={setModalImageLoad}
     />
     <div
-      class="imgLoader {!modalImgLoading && modalOpen ? 'hidden' : 'isLoaded'}"
+      class="imgLoader {!modalImgLoading && modalOpen ? '' : 'isLoaded'}"
     ></div>
     <div class="relative">
       <button
@@ -290,7 +288,7 @@
     background: #e74e49;
     transform: rotate(0deg);
     transform-origin: 35px 2045px;
-    animation: rotate 2s infinite ease-in-out;
+    animation: rotate2 2s infinite ease-in-out;
   }
 
   @keyframes slide {
@@ -310,7 +308,7 @@
     }
   }
 
-  @keyframes rotate {
+  @keyframes rotate2 {
     0% {
       transform: rotate(-15deg);
     }
