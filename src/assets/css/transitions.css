@@ -17,13 +17,13 @@ hgroup {
 .art-card,
 .live2d-card,
 .project-cards {
-  animation: .6s scaleIn;
+  animation: 0.6s scaleIn;
   transition: transform 250ms;
 }
 
 @keyframes scaleIn {
   from {
-    transform: scale(.95);
+    transform: scale(0.95);
   }
 
   to {
@@ -31,12 +31,13 @@ hgroup {
   }
 }
 
-#lottie-container {
+/* #lottie-container {
   animation: 900ms cubic-bezier(.46, -0.33, .28, 1.59) 250ms slideInFromBottom forwards;
-}
+} */
 
 #hero h1 {
-  animation: 900ms cubic-bezier(.61, -0.48, .19, 1.87) slideInFromBottom forwards;
+  animation: 900ms cubic-bezier(0.61, -0.48, 0.19, 1.87) slideInFromBottom
+    forwards;
 }
 
 @keyframes slideInFromBottom {
